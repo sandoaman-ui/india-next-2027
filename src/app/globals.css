@@ -1,26 +1,345 @@
 @import "tailwindcss";
 
+/* ===========================================================================
+   DESIGN TOKENS
+   Every colour, type step, radius, and motion duration on the site resolves
+   to one of these variables. When the design-system HTML lands, remap the
+   values here and the whole site follows — no component needs to change.
+   ========================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Ground: ink (dark sections) ------------------------------------- */
+  --ink-900: #07080b;
+  --ink-800: #0b0d11;
+  --ink-700: #111419;
+  --ink-600: #181c24;
+  --ink-500: #242933;
+  --ink-400: #3a414f;
+
+  /* --- Ground: bone (light sections) ----------------------------------- */
+  --bone-100: #ffffff;
+  --bone-200: #f7f4ed;
+  --bone-300: #ece7db;
+  --bone-400: #dbd3c2;
+  --bone-500: #b8ae99;
+
+  /* --- Track accents ---------------------------------------------------- */
+  /* Debate — crimson. Argument, heat, the stage. */
+  --crimson: #cf1f33;
+  --crimson-bright: #ff4d5f;
+  --crimson-deep: #7e0f1e;
+  /* Founders — ultramarine. Build, capital, signal. */
+  --azure: #2a4ce0;
+  --azure-bright: #7191ff;
+  --azure-deep: #141f73;
+  /* The national stage. */
+  --gold: #c29421;
+  --gold-bright: #f0ca5c;
+
+  /* --- Semantic ---------------------------------------------------------- */
+  --fg: var(--ink-900);
+  --bg: var(--bone-200);
+  --muted: color-mix(in oklab, var(--ink-900) 58%, transparent);
+  --line: color-mix(in oklab, var(--ink-900) 13%, transparent);
+  --line-strong: color-mix(in oklab, var(--ink-900) 26%, transparent);
+  --accent: var(--crimson);
+
+  /* --- Radii ------------------------------------------------------------- */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* --- Motion ------------------------------------------------------------ */
+  --d-fast: 160ms;
+  --d-base: 280ms;
+  --d-slow: 560ms;
+  --d-reveal: 900ms;
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --e-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* --- Rhythm ------------------------------------------------------------ */
+  --gutter: 1.25rem;
+  --shell: 86rem;
+  --section-y: clamp(5rem, 11vw, 10.5rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark ground: flip the semantic layer, keep the scales intact. */
+[data-ground="ink"] {
+  --fg: var(--bone-200);
+  --bg: var(--ink-900);
+  --muted: color-mix(in oklab, var(--bone-200) 56%, transparent);
+  --line: color-mix(in oklab, var(--bone-200) 15%, transparent);
+  --line-strong: color-mix(in oklab, var(--bone-200) 30%, transparent);
+  --crimson: var(--crimson-bright);
+  --azure: var(--azure-bright);
+  --gold: var(--gold-bright);
 }
 
-@media (prefers-color-scheme: dark) {
+[data-ground="bone"] {
+  --fg: var(--ink-900);
+  --bg: var(--bone-200);
+  --muted: color-mix(in oklab, var(--ink-900) 58%, transparent);
+  --line: color-mix(in oklab, var(--ink-900) 13%, transparent);
+  --line-strong: color-mix(in oklab, var(--ink-900) 26%, transparent);
+  --crimson: #cf1f33;
+  --azure: #2a4ce0;
+  --gold: #a87f14;
+}
+
+/* Track scoping: set --accent once, let every child read it. */
+[data-track="debate"] {
+  --accent: var(--crimson);
+}
+[data-track="founders"] {
+  --accent: var(--azure);
+}
+
+@media (min-width: 48rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --gutter: 2.5rem;
+  }
+}
+@media (min-width: 80rem) {
+  :root {
+    --gutter: 4rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===========================================================================
+   TAILWIND THEME BRIDGE
+   ========================================================================= */
+
+@theme inline {
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-ink-500: var(--ink-500);
+  --color-ink-400: var(--ink-400);
+
+  --color-bone-100: var(--bone-100);
+  --color-bone-200: var(--bone-200);
+  --color-bone-300: var(--bone-300);
+  --color-bone-400: var(--bone-400);
+  --color-bone-500: var(--bone-500);
+
+  --color-crimson: var(--crimson);
+  --color-azure: var(--azure);
+  --color-gold: var(--gold);
+
+  --color-fg: var(--fg);
+  --color-bg: var(--bg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-label), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-xs: var(--r-xs);
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
+  --radius-xl: var(--r-xl);
+
+  --ease-out-expo: var(--e-out);
+  --ease-in-out-quint: var(--e-in-out);
+}
+
+/* ===========================================================================
+   BASE
+   ========================================================================= */
+
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--ink-900);
+    color: var(--fg);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--crimson);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ===========================================================================
+   PRIMITIVES
+   ========================================================================= */
+
+@layer components {
+  /* Page shell. Everything aligns to this. */
+  .shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    background-color: var(--bg);
+    color: var(--fg);
+    padding-block: var(--section-y);
+    position: relative;
+  }
+
+  /* Editorial display type. Fraunces, tightened, optically sized. */
+  .display {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.028em;
+    line-height: 0.92;
+    font-optical-sizing: auto;
+  }
+
+  .display-xl {
+    font-size: clamp(3.4rem, 13vw, 11rem);
+  }
+  .display-lg {
+    font-size: clamp(2.6rem, 7.2vw, 6rem);
+  }
+  .display-md {
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+  }
+  .display-sm {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    line-height: 1.02;
+  }
+
+  /* Monospace labels: eyebrows, step numbers, timecodes. */
+  .label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .label-sm {
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+  }
+
+  /* Big animated figures. Tabular so digits don't jitter mid-count. */
+  .figure {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+    line-height: 0.86;
+  }
+
+  .lede {
+    font-size: clamp(1.125rem, 1.9vw, 1.5rem);
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+  }
+
+  .hairline {
+    border-color: var(--line);
+  }
+
+  /* Fine grain over photography — stops large flat images looking like stock. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* A single-pixel rule that reads as a drawn line, not a border. */
+  .rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      var(--line-strong),
+      var(--line) 30%,
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hides the scrollbar on horizontal rails without disabling the scroll. */
+  .no-bar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .edge-fade {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 3rem,
+      #000 calc(100% - 3rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 3rem,
+      #000 calc(100% - 3rem),
+      transparent
+    );
+  }
 }
