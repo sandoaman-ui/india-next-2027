@@ -9,6 +9,8 @@ type Props = {
   suffix?: string;
   /** Count-up runs once, the first time the figure scrolls into view. */
   durationMs?: number;
+  /** Start on mount instead of on scroll — for figures that are above the fold. */
+  immediate?: boolean;
   className?: string;
 };
 
@@ -18,10 +20,12 @@ export function CountUp({
   value,
   suffix = "",
   durationMs = 1600,
+  immediate = false,
   className,
 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const scrolledInto = useInView(ref, { once: true, margin: "-15% 0px" });
+  const inView = immediate || scrolledInto;
   const reduced = useReducedMotion();
   const [shown, setShown] = useState(reduced ? value : 0);
 

@@ -46,6 +46,7 @@ export function Hero() {
                     value={stat.value}
                     suffix={stat.suffix}
                     durationMs={1400 + i * 180}
+                    immediate
                   />
                 </dd>
                 <dd className="text-[0.8125rem] leading-snug text-[var(--muted)]">
