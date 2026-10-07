@@ -181,7 +181,7 @@ function TrackHead({ track }: { track: Track }) {
           <Photo
             name={track.image}
             sizes="(max-width: 1024px) 50vw, 40vw"
-            className="object-cover object-top transition-transform duration-[1200ms] ease-[var(--e-out)] hover:scale-[1.04]"
+            className="object-cover object-center transition-transform duration-[1200ms] ease-[var(--e-out)] hover:scale-[1.04]"
           />
         </div>
 
@@ -207,11 +207,11 @@ function TrackIntroCompact({ track }: { track: Track }) {
     <div className="track-field-strong flex h-full flex-col overflow-hidden rounded-[var(--r-md)] border border-[var(--line)]">
       <span aria-hidden="true" className="h-1 w-full bg-[var(--accent)]" />
 
-      <div className="grain relative aspect-[5/4] overflow-hidden">
+      <div className="grain relative aspect-[4/3] overflow-hidden">
         <Photo
           name={track.image}
           sizes="48vw"
-          className="object-cover object-top"
+          className="object-cover object-center"
         />
       </div>
 

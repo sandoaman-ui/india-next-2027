@@ -3,7 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { debate, founders } from "@/content/tracks";
+import { tracks } from "@/content/tracks";
 import { Cta } from "@/components/ui/Cta";
 import { EASE_OUT } from "@/lib/motion";
 
@@ -49,26 +49,18 @@ export function MobileCtaBar() {
         >
           {/* Two tracks, two buttons, side by side — same rule as everywhere else. */}
           <div className="grid grid-cols-2 gap-2 px-4 py-3">
-            <div data-track="debate">
-              <Cta
-                href={debate.cta.href}
-                variant="accent"
-                size="md"
-                className="w-full"
-              >
-                Debate
-              </Cta>
-            </div>
-            <div data-track="founders">
-              <Cta
-                href={founders.cta.href}
-                variant="accent"
-                size="md"
-                className="w-full"
-              >
-                Founders
-              </Cta>
-            </div>
+            {tracks.map((track) => (
+              <div key={track.id} data-track={track.id}>
+                <Cta
+                  href={track.cta.href}
+                  variant="accent"
+                  size="md"
+                  className="w-full"
+                >
+                  {track.shortName}
+                </Cta>
+              </div>
+            ))}
           </div>
         </motion.div>
       ) : null}
