@@ -14,9 +14,11 @@ export function FinalCta() {
       <Photo
         name="conclaveAudience"
         sizes="100vw"
-        className="-z-10 object-cover object-center opacity-[0.26]"
+        className="-z-10 object-cover object-center"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--ink-900)] via-[var(--ink-900)]/80 to-[var(--ink-900)]" />
+      <div className="absolute inset-0 -z-10 bg-[var(--blue-2)]/62" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--blue-1)] via-[var(--blue-2)]/72 to-[var(--blue-3)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_50%_45%,var(--blue-1)_0%,transparent_75%)]" />
 
       <div className="shell flex flex-col items-center text-center">
         <Reveal className="label text-[var(--muted)]">

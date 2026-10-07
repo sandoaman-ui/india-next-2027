@@ -56,7 +56,7 @@ export function HeroTitle() {
               className="flex flex-wrap items-baseline gap-x-[0.28em]"
             >
               <span>Niti</span>
-              <span className="text-transparent [-webkit-text-stroke:1px_var(--line-strong)] md:[-webkit-text-stroke:1.5px_var(--line-strong)]">
+              <span className="text-transparent [-webkit-text-stroke:1.5px_var(--blue-6)] md:[-webkit-text-stroke:2px_var(--blue-6)]">
                 2027
               </span>
             </motion.span>

@@ -59,18 +59,22 @@ No component contains a user-visible string. If you find one, it is a bug.
 
 `src/app/globals.css` holds the whole token layer:
 
-- **Grounds** — `[data-ground="ink"]` / `[data-ground="bone"]` flip the semantic
-  variables (`--fg`, `--bg`, `--bg-grad`, `--muted`, `--line`). Sections set one
-  attribute and everything inside follows, including accents.
-  `ink` is a deep bluish-navy gradient — **flat black is never used anywhere on
-  the site**; `bone` is a cool paper gradient. Both are a constant base colour
-  plus soft radial washes, so stacked sections never show a seam.
-- **Tracks** — `[data-track="debate"]` / `[data-track="founders"]` set `--accent`
-  (deep rose / royal blue) and drive the `.track-field` colour wash. A component
-  never hard-codes an accent; it reads `var(--accent)`.
-- **Type** — three faces, mapped to `--font-display` (Archivo, a tight
-  professional grotesque), `--font-sans` (Inter), `--font-mono` (IBM Plex Mono),
-  with `.display`, `.figure`, `.label` and `.lede` as the only type primitives.
+- **One polarity.** The scheme is **light throughout** — a single analogous
+  blue family running from near-white to a soft blue tint. There is no dark
+  ground and no black anywhere; body type is dark blue, not black. The page
+  never flips between light and dark as you scroll.
+- **Grounds** — `[data-ground="ink"]` / `[data-ground="bone"]` differ only in
+  *tint*, never in polarity: `ink` is the deeper blue wash used to separate a
+  section from its neighbours, `bone` is the near-white base. Both are a
+  constant base colour plus soft radial washes, so stacked sections never show
+  a seam. Sections set one attribute and everything inside follows.
+- **Two accents only** — red and dark blue. `[data-track="debate"]` /
+  `[data-track="founders"]` set `--accent` and drive the `.track-field` colour
+  wash. A component never hard-codes an accent; it reads `var(--accent)`.
+- **Type** — three faces, mapped to `--font-display` (Source Serif 4 — a sober
+  transitional serif carrying every heading and figure), `--font-sans` (Inter,
+  all body copy), `--font-mono` (IBM Plex Mono, labels and timecodes), with
+  `.display`, `.figure`, `.label` and `.lede` as the only type primitives.
 
 When the design-system HTML arrives, remap the values in `:root` and the two
 ground blocks. No component should need to change.
@@ -105,6 +109,8 @@ mobile bottom bar.
 
 ## Deliberate constraints
 
+- **Photography never carries text over a dark plate.** Plates sit under a
+  light blue veil with dark-blue type above them.
 - **No named speakers, no speaker photos.** `conclave.ts` carries a
   `ConclaveSpeaker` shape and renders "Speakers to be announced" seat cards.
   Drop real names, titles and photos into `speakers: []` when confirmed.

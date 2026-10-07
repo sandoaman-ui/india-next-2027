@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      data-ground="ink"
+      data-ground="bone"
       className="relative isolate overflow-hidden bg-[var(--bg)] bg-[image:var(--bg-grad)] text-[var(--fg)]"
     >
       {/* Full-bleed plate: real delegates, heavily scrimmed so type stays AA. */}
@@ -21,12 +21,14 @@ export function Hero() {
           name="heroAuditorium"
           sizes="100vw"
           preload
-          className="scale-105 object-cover object-[50%_35%] opacity-[0.38]"
+          className="scale-105 object-cover object-[50%_35%]"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(125%_95%_at_16%_12%,transparent_0%,var(--ink-900)_74%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--ink-700)] via-transparent to-[var(--ink-900)]" />
-        <div className="absolute inset-0 bg-[var(--ink-900)]/42" />
-        <div className="absolute inset-0 bg-[radial-gradient(70%_50%_at_88%_18%,rgba(58,96,180,0.3),transparent_70%)]" />
+        {/* A light veil, weighted towards the type on the left, so the plate
+            stays photographic on the right without ever going dark. */}
+        <div className="absolute inset-0 bg-[var(--blue-1)]/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/78 to-[var(--blue-2)]/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--blue-0)]/55 via-transparent to-[var(--blue-1)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(72%_52%_at_86%_16%,rgba(22,48,106,0.1),transparent_70%)]" />
       </div>
 
       <div className="shell flex min-h-[88svh] flex-col justify-between pb-10 pt-[7.5rem] md:pb-12 md:pt-[8.5rem]">
@@ -67,11 +69,11 @@ export function Hero() {
               key={track.id}
               href="#tracks"
               data-track={track.id}
-              className="group relative flex flex-col justify-between gap-7 bg-[var(--ink-900)] p-4 transition-colors duration-[var(--d-base)] hover:bg-[var(--ink-800)] sm:p-6 md:gap-10 md:p-9"
+              className="group relative flex flex-col justify-between gap-7 bg-[var(--blue-0)] p-4 transition-colors duration-[var(--d-base)] hover:bg-[var(--blue-2)] sm:p-6 md:gap-10 md:p-9"
             >
               <span
                 aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-[var(--accent)] transition-transform duration-[var(--d-slow)] ease-[var(--e-out)] group-hover:scale-x-100"
+                className="absolute inset-x-0 top-0 h-1 bg-[var(--accent)]"
               />
               <div className="flex flex-col gap-4">
                 <span className="label text-[var(--accent)]">

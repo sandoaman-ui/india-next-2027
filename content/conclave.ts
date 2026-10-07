@@ -38,7 +38,6 @@ export const conclave = {
   principle:
     "Every panel is curated around Youth, Enterprise and Growth in Business. All stage discussions are moderated by Turning Point leadership, with SGCCI leadership present.",
   speakersPlaceholder: "Speakers to be announced",
-  image: "auditoriumScreen",
   runOfShow: [
     {
       id: "opening",

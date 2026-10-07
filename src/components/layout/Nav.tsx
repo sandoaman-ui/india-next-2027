@@ -34,17 +34,17 @@ export function Nav() {
     <>
       <a
         href="#about"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-bone-200 focus:px-4 focus:py-2 focus:text-sm focus:text-ink-900"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[var(--navy-900)] focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       >
         Skip to content
       </a>
 
       <header
-        data-ground="ink"
+        data-ground="bone"
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-[var(--d-base)]",
           solid || open
-            ? "border-b border-[var(--line)] bg-[color-mix(in_oklab,var(--ink-900)_86%,transparent)] backdrop-blur-xl"
+            ? "border-b border-[var(--line)] bg-[color-mix(in_oklab,var(--blue-0)_84%,transparent)] backdrop-blur-xl"
             : "border-b border-transparent",
         )}
       >
@@ -54,7 +54,7 @@ export function Nav() {
         >
           <Link
             href="#top"
-            className="shrink-0 whitespace-nowrap text-[var(--bone-200)] text-[1.0625rem] sm:text-lg"
+            className="shrink-0 whitespace-nowrap text-[var(--fg)] text-[1.0625rem] sm:text-lg"
             onClick={() => setOpen(false)}
           >
             <Wordmark />
@@ -66,7 +66,7 @@ export function Nav() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="relative rounded-full px-3.5 py-2 text-[0.875rem] text-[var(--muted)] transition-colors duration-[var(--d-fast)] hover:text-[var(--bone-200)]"
+                  className="relative rounded-full px-3.5 py-2 text-[0.875rem] text-[var(--muted)] transition-colors duration-[var(--d-fast)] hover:text-[var(--fg)]"
                 >
                   {link.label}
                 </Link>
@@ -86,7 +86,7 @@ export function Nav() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((v) => !v)}
-              className="relative -mr-1 grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] text-[var(--bone-200)] lg:hidden"
+              className="relative -mr-1 grid h-10 w-10 place-items-center rounded-full border border-[var(--line-strong)] text-[var(--fg)] lg:hidden"
             >
               <span className="sr-only">
                 {open ? "Close menu" : "Open menu"}
@@ -117,7 +117,7 @@ export function Nav() {
               animate={{ height: "auto", opacity: 1 }}
               exit={reduced ? undefined : { height: 0, opacity: 0 }}
               transition={{ duration: 0.38, ease: EASE_OUT }}
-              className="overflow-hidden lg:hidden"
+              className="overflow-hidden bg-[color-mix(in_oklab,var(--blue-0)_94%,transparent)] lg:hidden"
             >
               <ul className="shell flex flex-col gap-1 pb-7 pt-3">
                 {nav.links.map((link, i) => (
@@ -125,7 +125,7 @@ export function Nav() {
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-baseline gap-4 border-b border-[var(--line)] py-4 text-[var(--bone-200)]"
+                      className="flex items-baseline gap-4 border-b border-[var(--line)] py-4 text-[var(--fg)]"
                     >
                       <span className="label-sm label text-[var(--muted)]">
                         {String(i + 1).padStart(2, "0")}

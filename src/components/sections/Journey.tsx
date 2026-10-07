@@ -33,17 +33,14 @@ export function Journey() {
             <Reveal key={day.id} delay={dayIndex}>
               <article className="overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--bone-100)]">
                 {/* Day header, over a plate from the floor. */}
-                <header
-                  data-ground="ink"
-                  className="grain relative isolate overflow-hidden px-5 py-8 text-[var(--fg)] md:px-10 md:py-12"
-                >
+                <header className="grain relative isolate overflow-hidden border-b border-[var(--line)] px-5 py-8 text-[var(--fg)] md:px-10 md:py-12">
                   <Photo
                     name={day.image}
                     sizes="(max-width: 768px) 100vw, 1200px"
-                    className="-z-10 object-cover object-center opacity-[0.30]"
+                    className="-z-10 object-cover object-center"
                   />
-                  <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]/72" />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--ink-900)] to-transparent" />
+                  <div className="absolute inset-0 -z-10 bg-[var(--blue-1)]/60" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/82 to-[var(--blue-1)]/72" />
 
                   <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
                     <div className="flex flex-col gap-2.5">
@@ -53,8 +50,11 @@ export function Journey() {
                       <h3 className="display text-[clamp(2.2rem,7vw,4rem)] leading-[0.9]">
                         {day.name}
                       </h3>
-                      <span className="label text-[var(--gold)]">
+                      <span className="label text-[var(--crimson)]">
                         {day.mode}
+                      </span>
+                      <span className="label-sm label text-[var(--muted)]">
+                        {day.venue}
                       </span>
                     </div>
                     <p className="max-w-[42ch] text-sm leading-relaxed text-[var(--muted)] md:text-right">
@@ -69,7 +69,7 @@ export function Journey() {
                     <div
                       key={lane.track}
                       data-track={lane.track}
-                      className="flex flex-col gap-5 bg-[var(--bone-100)] px-4 py-7 md:px-9 md:py-10"
+                      className="track-field flex flex-col gap-5 bg-[var(--blue-0)] px-4 py-7 md:px-9 md:py-10"
                     >
                       <div className="flex items-center gap-2.5">
                         <span
@@ -88,7 +88,7 @@ export function Journey() {
                             <span className="relative flex flex-col items-center">
                               <span
                                 aria-hidden="true"
-                                className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--bone-100)]"
+                                className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--blue-0)]"
                               />
                               {i < lane.stops.length - 1 ? (
                                 <span
@@ -145,10 +145,7 @@ function Converge({
   body: string;
 }) {
   return (
-    <div
-      data-ground="ink"
-      className="relative overflow-hidden border-t border-[var(--line)] bg-[var(--ink-900)] px-5 pb-8 pt-10 text-[var(--fg)] md:px-10 md:pb-12 md:pt-14"
-    >
+    <div className="relative overflow-hidden border-t border-[var(--line)] bg-[var(--blue-3)] px-5 pb-8 pt-10 text-[var(--fg)] md:px-10 md:pb-12 md:pt-14">
       {/* Two lines leaning in until they meet. */}
       <svg
         aria-hidden="true"
@@ -175,7 +172,7 @@ function Converge({
       </svg>
 
       <div className={cn("relative flex flex-col gap-3 pt-5 text-center")}>
-        <span className="label text-[var(--gold)]">{label}</span>
+        <span className="label text-[var(--crimson)]">{label}</span>
         <h4 className="display mx-auto max-w-[16ch] text-[clamp(1.6rem,5vw,2.75rem)] leading-[0.95]">
           {title}
         </h4>

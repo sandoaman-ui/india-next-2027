@@ -26,8 +26,8 @@ export function About() {
                 sizes="(max-width: 1024px) 0px, 420px"
                 className="object-cover object-[55%_35%]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)]/85 via-transparent to-transparent" />
-              <p className="label absolute bottom-4 left-4 right-4 text-[var(--bone-200)]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-0)] via-[var(--blue-0)]/25 to-transparent" />
+              <p className="label absolute bottom-4 left-4 right-4 text-[var(--navy)]">
                 Discover / Compete / Connect / Build / Impact
               </p>
             </Reveal>
@@ -141,15 +141,15 @@ export function About() {
         {/* Pull line over the Conclave hall. */}
         <Reveal className="mt-20 md:mt-28">
           <figure
-            data-ground="ink"
-            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] bg-[var(--ink-900)] px-6 py-16 text-[var(--fg)] md:px-14 md:py-24"
+            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--blue-2)] px-6 py-16 text-[var(--fg)] md:px-14 md:py-24"
           >
             <Photo
               name="hallWide"
               sizes="(max-width: 1024px) 100vw, 1200px"
-              className="-z-10 object-cover object-center opacity-45"
+              className="-z-10 object-cover object-center"
             />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--ink-900)] via-[var(--ink-900)]/82 to-[var(--ink-900)]/40" />
+            <div className="absolute inset-0 -z-10 bg-[var(--blue-1)]/48" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/84 to-[var(--blue-2)]/22" />
 
             <figcaption className="display max-w-[20ch] text-balance text-[clamp(1.6rem,3.6vw,3rem)] leading-[1.02]">
               {about.pull}

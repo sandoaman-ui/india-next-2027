@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono, Inter } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Source_Serif_4 } from "next/font/google";
 
 import { site } from "@/content/site";
 import "./globals.css";
 
-/* Display grotesque — headlines and the big figures. Professional, not decorative. */
-const archivo = Archivo({
+/* Headlines and the big figures. A sober transitional serif: formal and
+   institutional, with none of the quirk a display face would bring. */
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-archivo",
+  variable: "--font-source-serif",
 });
 
 /* Interface and body copy. */
@@ -64,8 +65,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080e1c",
-  colorScheme: "dark",
+  themeColor: "#f6f9fd",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -74,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${archivo.variable} ${inter.variable} ${mono.variable}`}
+      className={`${sourceSerif.variable} ${inter.variable} ${mono.variable}`}
     >
       <body>{children}</body>
     </html>

@@ -106,7 +106,7 @@ export const debate: Track = {
       "The strongest debaters reach the Day 2 finals and the National Conclave stage, and join the Bharat Yuva Niti network.",
   },
   cta: { label: "Apply to Debate", href: "#apply" },
-  image: "trackDebateHouse",
+  image: "trackDebateTrophy",
   applyFor:
     "Young people who love ideas, argument, public speaking, current affairs, business and persuasion.",
   applyTags: [
@@ -226,7 +226,7 @@ export const founders: Track = {
       "The Bharat Yuva Niti Fellowship — mentorship, networks and future opportunities.",
   },
   cta: { label: "Apply to Innovators", href: "#apply" },
-  image: "trackInnovatorsArena",
+  image: "trackInnovatorsHall",
   applyFor:
     "Young people with an idea, prototype, project, startup, technology or social solution — or simply a problem they believe is worth solving.",
   applyTags: [

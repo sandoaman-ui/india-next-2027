@@ -52,9 +52,12 @@ export function Pillars() {
           <Reveal
             as="li"
             delay={5}
-            data-ground="ink"
-            className="flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--ink-900)] p-6 text-[var(--fg)] md:p-8"
+            className="relative flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--blue-3)] p-6 pt-8 text-[var(--fg)] md:p-8 md:pt-10"
           >
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-1.5 bg-[var(--crimson)]"
+            />
             <span className="label text-[var(--crimson)]">
               {pillars.mission.label}
             </span>

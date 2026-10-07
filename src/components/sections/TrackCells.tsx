@@ -157,16 +157,14 @@ function SignaturePanel({
   note?: string;
 }) {
   return (
-    <div
-      data-ground="ink"
-      className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] bg-[var(--ink-800)] text-[var(--fg)] shadow-[0_18px_40px_-24px_rgba(8,14,28,0.55)]"
-    >
+    <div className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--blue-0)] text-[var(--fg)] shadow-[0_18px_40px_-26px_rgba(13,31,66,0.35)]">
       <Photo
         name={image}
         sizes="(max-width: 1024px) 100vw, 44vw"
-        className="-z-10 object-cover object-top opacity-[0.22]"
+        className="-z-10 object-cover object-top"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--ink-900)] via-[var(--ink-800)]/90 to-[var(--ink-700)]/65" />
+      <div className="absolute inset-0 -z-10 bg-[var(--blue-0)]/90" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--blue-0)] via-[var(--blue-1)]/92 to-[var(--blue-2)]/78" />
       <span
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-1 bg-[var(--accent)]"
@@ -187,7 +185,7 @@ function SignaturePanel({
           {beats.map((beat) => (
             <li
               key={beat.label}
-              className="flex flex-wrap items-baseline gap-x-3 gap-y-1 bg-[var(--ink-900)]/70 px-4 py-3"
+              className="flex flex-wrap items-baseline gap-x-3 gap-y-1 bg-[var(--blue-0)] px-4 py-3"
             >
               <span className="label w-[4.5rem] shrink-0 tabular-nums text-[var(--accent)]">
                 {beat.time}

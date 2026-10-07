@@ -5,7 +5,10 @@ import { Wordmark } from "./Wordmark";
 
 export function Footer() {
   return (
-    <footer data-ground="ink" className="bg-[var(--bg)] text-[var(--fg)]">
+    <footer
+      data-ground="ink"
+      className="bg-[var(--bg)] bg-[image:var(--bg-grad)] text-[var(--fg)]"
+    >
       <div className="shell border-t border-[var(--line)] py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-6">
@@ -42,7 +45,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[var(--fg)]/80 transition-colors hover:text-[var(--crimson)]"
+                      className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--crimson)]"
                     >
                       {link.label}
                     </Link>
@@ -60,7 +63,7 @@ export function Footer() {
                   <dt className="label-sm label text-[var(--muted)]">
                     {d.label}
                   </dt>
-                  <dd className="mt-1 text-[var(--fg)]/80">{d.value}</dd>
+                  <dd className="mt-1 text-[var(--muted)]">{d.value}</dd>
                 </div>
               ))}
             </dl>
