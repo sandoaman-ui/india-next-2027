@@ -7,7 +7,7 @@ export function Conclave() {
   return (
     <section
       id={conclave.id}
-      data-ground="ink"
+      data-ground="bone"
       className="section scroll-mt-16"
       aria-labelledby="conclave-title"
     >

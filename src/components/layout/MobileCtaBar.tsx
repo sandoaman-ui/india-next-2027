@@ -44,7 +44,7 @@ export function MobileCtaBar() {
           animate={{ y: 0 }}
           exit={reduced ? undefined : { y: "110%" }}
           transition={{ duration: 0.42, ease: EASE_OUT }}
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line-strong)] bg-[color-mix(in_oklab,var(--blue-0)_90%,transparent)] backdrop-blur-xl lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line-strong)] bg-[color-mix(in_oklab,var(--paper-0)_90%,transparent)] backdrop-blur-xl lg:hidden"
           style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
           {/* Two tracks, two buttons, side by side — same rule as everywhere else. */}

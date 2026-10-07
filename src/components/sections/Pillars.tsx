@@ -6,7 +6,7 @@ export function Pillars() {
   return (
     <section
       id={pillars.id}
-      data-ground="bone"
+      data-ground="ink"
       className="section"
       aria-labelledby="pillars-title"
     >
@@ -36,7 +36,7 @@ export function Pillars() {
               key={item.num}
               as="li"
               delay={i}
-              className="group relative flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--blue-0)] p-6 pt-8 transition-colors duration-[var(--d-base)] hover:bg-[var(--blue-2)] md:p-8 md:pt-10"
+              className="group relative flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--paper-0)] p-6 pt-8 transition-colors duration-[var(--d-base)] hover:bg-[var(--paper-2)] md:p-8 md:pt-10"
             >
               <span
                 aria-hidden="true"
@@ -64,7 +64,7 @@ export function Pillars() {
           <Reveal
             as="li"
             delay={5}
-            className="relative flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--blue-3)] p-6 pt-8 text-[var(--fg)] md:p-8 md:pt-10"
+            className="relative flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--paper-3)] p-6 pt-8 text-[var(--fg)] md:p-8 md:pt-10"
           >
             <span
               aria-hidden="true"

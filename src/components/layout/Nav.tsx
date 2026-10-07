@@ -45,7 +45,7 @@ export function Nav() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-[var(--d-base)]",
           solid || open
-            ? "border-b border-[var(--line)] bg-[color-mix(in_oklab,var(--blue-0)_84%,transparent)] backdrop-blur-xl"
+            ? "border-b border-[var(--line)] bg-[color-mix(in_oklab,var(--paper-0)_84%,transparent)] backdrop-blur-xl"
             : "border-b border-transparent",
         )}
       >
@@ -118,7 +118,7 @@ export function Nav() {
               animate={{ height: "auto", opacity: 1 }}
               exit={reduced ? undefined : { height: 0, opacity: 0 }}
               transition={{ duration: 0.38, ease: EASE_OUT }}
-              className="overflow-hidden bg-[color-mix(in_oklab,var(--blue-0)_94%,transparent)] lg:hidden"
+              className="overflow-hidden bg-[color-mix(in_oklab,var(--paper-0)_94%,transparent)] lg:hidden"
             >
               <ul className="shell flex flex-col gap-1 pb-7 pt-3">
                 {nav.links.map((link, i) => (

@@ -13,70 +13,65 @@
    ========================================================================= */
 
 :root {
-  /* --- The blue family, light to deep ----------------------------------- */
-  --blue-0: #ffffff;
-  --blue-1: #dfeaf7;
-  --blue-2: #d3e3f4;
-  --blue-3: #c3d9f0;
-  --blue-4: #b0cae8;
-  --blue-5: #8fb2df;
-  --blue-6: #6a93cd;
-  --blue-7: #426cab;
+  /* --- Base: white and neutral paper. No colour cast. ------------------- */
+  --paper-0: #ffffff;
+  --paper-1: #fbfbfc;
+  --paper-2: #f5f6f8;
+  --paper-3: #eef0f3;
+  --paper-4: #e2e5ea;
+  --paper-5: #ced3da;
+  --paper-6: #a8b0ba;
+  --paper-7: #767e8a;
 
-  /* --- Ink: dark blue, never black -------------------------------------- */
-  --navy-900: #0d1f42;
-  --navy-800: #142a57;
-  --navy-700: #1b366e;
-  --navy-600: #24458a;
+  /* --- Ink: near-black, for type and the crispest surfaces -------------- */
+  --black: #0a0a0c;
+  --black-2: #17191d;
+  --grey-700: #474c55;
+  --grey-500: #747a84;
 
-  /* --- Accents ----------------------------------------------------------- */
-  --red: #be1324;
-  --red-soft: #e03b4a;
-  --navy: #17347a;
-  --navy-soft: #2f58b4;
+  /* --- Accents: one blue, one red. Saturated enough to carry. ----------- */
+  --blue: #1240c4;
+  --blue-deep: #0a2a85;
+  --blue-soft: #3e68e2;
+  --red: #d01026;
+  --red-deep: #8f0a18;
+  --red-soft: #e63b4c;
 
-  /* --- Legacy scale names, remapped onto the blue family ----------------- */
-  /* Components read these; keeping the names avoids churn when the palette
-     is swapped again. "ink" now means dark blue type, not a dark ground. */
-  --ink-900: var(--navy-900);
-  --ink-800: var(--navy-800);
-  --ink-700: #1b366e;
-  --ink-600: var(--navy-600);
-  --ink-500: #3a5b9e;
-  --ink-400: #6c8dbd;
+  /* --- Legacy scale names, remapped. Components read these. ------------- */
+  --ink-900: var(--black);
+  --ink-800: var(--black-2);
+  --ink-700: #22262c;
+  --ink-600: var(--grey-700);
+  --ink-500: #5c626c;
+  --ink-400: var(--grey-500);
 
-  --bone-100: var(--blue-0);
-  --bone-200: var(--blue-1);
-  --bone-300: var(--blue-3);
-  --bone-400: var(--blue-5);
-  --bone-500: var(--blue-7);
+  --bone-100: var(--paper-0);
+  --bone-200: var(--paper-1);
+  --bone-300: var(--paper-3);
+  --bone-400: var(--paper-5);
+  --bone-500: var(--paper-7);
 
-  /* Track accents. `crimson` is the red, `azure` is the dark blue. */
+  /* Track accents: the Debate is red, the Innovators Challenge is blue. */
   --crimson: var(--red);
   --crimson-bright: var(--red-soft);
-  --crimson-deep: #7d0c16;
-  --azure: var(--navy);
-  --azure-bright: var(--navy-soft);
-  --azure-deep: #0d1f4d;
-  /* The national-stage highlight. Stays inside the two-accent system. */
+  --crimson-deep: var(--red-deep);
+  --azure: var(--blue);
+  --azure-bright: var(--blue-soft);
+  --azure-deep: var(--blue-deep);
+  /* The national-stage highlight stays inside the three-colour system. */
   --gold: var(--red);
   --gold-bright: var(--red-soft);
 
   /* --- Semantic ---------------------------------------------------------- */
-  --fg: var(--navy-900);
-  --bg: var(--blue-1);
-  --bg-grad: radial-gradient(
-      78% 56% at 10% 0%,
-      rgba(23, 52, 122, 0.16),
-      transparent 64%
-    ),
-    radial-gradient(66% 50% at 96% 30%, rgba(190, 19, 36, 0.09), transparent 68%),
-    radial-gradient(88% 54% at 52% 104%, rgba(23, 52, 122, 0.12), transparent 66%);
-  --muted: color-mix(in oklab, var(--navy-900) 68%, transparent);
-  --line: color-mix(in oklab, var(--navy-900) 15%, transparent);
-  --line-strong: color-mix(in oklab, var(--navy-900) 30%, transparent);
+  --fg: var(--black);
+  --bg: var(--paper-0);
+  /* Barely-there washes. The base must read as white, not as a tint. */
+  --bg-grad: none;
+  --muted: var(--grey-700);
+  --line: rgba(10, 10, 12, 0.13);
+  --line-strong: rgba(10, 10, 12, 0.3);
   --accent: var(--crimson);
-  --surface: rgba(255, 255, 255, 0.82);
+  --surface: #ffffff;
 
   /* --- Radii ------------------------------------------------------------- */
   --r-xs: 4px;
@@ -93,6 +88,10 @@
   --e-out: cubic-bezier(0.16, 1, 0.3, 1);
   --e-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
+  /* --- Elevation. Neutral, so white cards sit above paper cleanly. ------- */
+  --shadow-sm: 0 1px 2px rgba(10, 10, 12, 0.05);
+  --shadow-md: 0 10px 28px -16px rgba(10, 10, 12, 0.22);
+
   /* --- Rhythm ------------------------------------------------------------ */
   --gutter: 1.25rem;
   --shell: 86rem;
@@ -100,36 +99,28 @@
 }
 
 /*
- * The two grounds differ only in tint. `tint` is the deeper blue wash used to
- * separate a section from its neighbours; `paper` is the near-white base.
- * Both keep dark-blue type — the page never inverts.
+ * The two grounds differ only in tone: `ink` is the light neutral grey used to
+ * separate a section from its neighbours, `bone` is white. Type stays near-black
+ * on both — the page never inverts.
  */
 [data-ground="ink"] {
-  --bg: var(--blue-3);
+  --bg: var(--paper-2);
   --bg-grad: radial-gradient(
-      85% 62% at 14% 0%,
-      rgba(23, 52, 122, 0.2),
-      transparent 66%
-    ),
-    radial-gradient(70% 55% at 92% 86%, rgba(190, 19, 36, 0.1), transparent 70%),
-    radial-gradient(60% 46% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 70%);
-  --surface: rgba(255, 255, 255, 0.8);
-  --line: color-mix(in oklab, var(--navy-900) 17%, transparent);
-  --line-strong: color-mix(in oklab, var(--navy-900) 32%, transparent);
+    80% 55% at 50% 0%,
+    rgba(10, 10, 12, 0.022),
+    transparent 72%
+  );
+  --surface: #ffffff;
+  --line: rgba(10, 10, 12, 0.12);
+  --line-strong: rgba(10, 10, 12, 0.28);
 }
 
 [data-ground="bone"] {
-  --bg: var(--blue-1);
-  --bg-grad: radial-gradient(
-      78% 56% at 10% 0%,
-      rgba(23, 52, 122, 0.15),
-      transparent 64%
-    ),
-    radial-gradient(66% 50% at 96% 30%, rgba(190, 19, 36, 0.085), transparent 68%),
-    radial-gradient(88% 54% at 52% 104%, rgba(23, 52, 122, 0.11), transparent 66%);
-  --surface: rgba(255, 255, 255, 0.82);
-  --line: color-mix(in oklab, var(--navy-900) 14%, transparent);
-  --line-strong: color-mix(in oklab, var(--navy-900) 28%, transparent);
+  --bg: var(--paper-0);
+  --bg-grad: none;
+  --surface: #ffffff;
+  --line: rgba(10, 10, 12, 0.11);
+  --line-strong: rgba(10, 10, 12, 0.26);
 }
 
 /* Track scoping: set --accent once, let every child read it. */
@@ -210,7 +201,7 @@
   }
 
   body {
-    background-color: var(--blue-1);
+    background-color: var(--paper-0);
     color: var(--fg);
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-synthesis-weight: none;
@@ -347,17 +338,18 @@
 
   /* A track column's colour field. Reads as territory, not as a border box. */
   .track-field {
-    background-color: color-mix(in oklab, var(--accent) 8%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 4%, transparent);
   }
   .track-field-strong {
-    background-color: color-mix(in oklab, var(--accent) 14%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 7%, transparent);
   }
 
   /* A raised panel used where a section needs emphasis without going dark. */
+  /* A white card lifted off the paper ground. */
   .panel {
     background-color: var(--surface);
     border: 1px solid var(--line);
-    backdrop-filter: blur(6px);
+    box-shadow: var(--shadow-md);
   }
 
   /* Fine grain over photography — stops large flat images looking like stock. */

@@ -9,7 +9,7 @@ export function About() {
   return (
     <section
       id={about.id}
-      data-ground="bone"
+      data-ground="ink"
       className="section scroll-mt-20"
       aria-labelledby="about-title"
     >
@@ -26,7 +26,7 @@ export function About() {
                 sizes="(max-width: 1024px) 0px, 420px"
                 className="object-cover object-[55%_35%]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-0)] via-[var(--blue-0)]/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper-0)] via-[var(--paper-0)]/25 to-transparent" />
               <p className="label absolute bottom-4 left-4 right-4 text-[var(--navy)]">
                 Discover / Compete / Connect / Build / Impact
               </p>
@@ -64,7 +64,7 @@ export function About() {
 
             {/* The walk-through sits here, where the column would otherwise run out. */}
             <Reveal delay={2} className="mt-2">
-              <div className="relative overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--surface)] p-5 pt-7 backdrop-blur-sm md:p-7 md:pt-9">
+              <div className="panel relative overflow-hidden rounded-[var(--r-lg)] p-5 pt-7 md:p-7 md:pt-9">
                 <span
                   aria-hidden="true"
                   className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--crimson)] to-[var(--azure)]"
@@ -157,7 +157,7 @@ export function About() {
                 style={{
                   color: i % 2 ? "var(--azure)" : "var(--crimson)",
                   borderColor: "var(--line)",
-                  backgroundColor: "var(--surface)",
+                  backgroundColor: "var(--paper-0)",
                 }}
               >
                 {step}
@@ -169,15 +169,15 @@ export function About() {
         {/* Pull line over the Conclave hall. */}
         <Reveal className="mt-20 md:mt-28">
           <figure
-            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--blue-2)] px-6 pb-16 pt-18 text-[var(--fg)] md:px-14 md:pb-24 md:pt-26"
+            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--paper-0)] px-6 pb-16 pt-18 text-[var(--fg)] shadow-[var(--shadow-md)] md:px-14 md:pb-24 md:pt-26"
           >
             <Photo
               name="hallWide"
               sizes="(max-width: 1024px) 100vw, 1200px"
               className="-z-10 object-cover object-center"
             />
-            <div className="absolute inset-0 -z-10 bg-[var(--blue-1)]/38" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/82 to-[var(--blue-2)]/14" />
+            <div className="absolute inset-0 -z-10 bg-[var(--paper-0)]/34" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--paper-0)] via-[var(--paper-0)]/84 to-[var(--paper-0)]/10" />
             <span
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--crimson)] via-[var(--azure)] to-[var(--crimson)]"

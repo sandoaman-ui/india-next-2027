@@ -59,18 +59,19 @@ No component contains a user-visible string. If you find one, it is a bug.
 
 `src/app/globals.css` holds the whole token layer:
 
-- **One polarity.** The scheme is **light throughout** — a single analogous
-  blue family running from near-white to a soft blue tint. There is no dark
-  ground and no black anywhere; body type is dark blue, not black. The page
-  never flips between light and dark as you scroll.
-- **Grounds** — `[data-ground="ink"]` / `[data-ground="bone"]` differ only in
-  *tint*, never in polarity: `ink` is the deeper blue wash used to separate a
-  section from its neighbours, `bone` is the near-white base. Both are a
-  constant base colour plus soft radial washes, so stacked sections never show
-  a seam. Sections set one attribute and everything inside follows.
-- **Two accents only** — red and dark blue. `[data-track="debate"]` /
-  `[data-track="founders"]` set `--accent` and drive the `.track-field` colour
-  wash. A component never hard-codes an accent; it reads `var(--accent)`.
+- **Three colours on white.** A white and neutral-paper base carries near-black
+  type, with exactly two accents: **red** (the Debate) and **blue** (the
+  Innovators Challenge). The grounds hold no colour cast at all — every bit of
+  colour on the page is doing a job.
+- **One polarity.** The scheme is light throughout; the page never flips
+  between light and dark as you scroll.
+- **Grounds** — `[data-ground="bone"]` is white, `[data-ground="ink"]` is the
+  light neutral grey used to separate a section from its neighbours. Sections
+  alternate between them, set one attribute, and everything inside follows.
+  White cards sit above the grey ground on `--shadow-md`.
+- **Tracks** — `[data-track="debate"]` / `[data-track="founders"]` set
+  `--accent` (red / blue) and drive the `.track-field` colour wash. A component
+  never hard-codes an accent; it reads `var(--accent)`.
 - **Type** — three faces, mapped to `--font-display` (Source Serif 4 — a sober
   transitional serif carrying every heading and figure), `--font-sans` (Inter,
   all body copy), `--font-mono` (IBM Plex Mono, labels and timecodes), with

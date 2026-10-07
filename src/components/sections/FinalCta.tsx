@@ -7,7 +7,7 @@ export function FinalCta() {
   return (
     <section
       id={finalCta.id}
-      data-ground="ink"
+      data-ground="bone"
       className="section grain relative isolate overflow-hidden scroll-mt-16"
       aria-labelledby="final-title"
     >
@@ -16,9 +16,9 @@ export function FinalCta() {
         sizes="100vw"
         className="-z-10 object-cover object-center"
       />
-      <div className="absolute inset-0 -z-10 bg-[var(--blue-2)]/62" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--blue-1)] via-[var(--blue-2)]/72 to-[var(--blue-3)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_50%_45%,var(--blue-1)_0%,transparent_75%)]" />
+      <div className="absolute inset-0 -z-10 bg-[var(--paper-0)]/58" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--paper-0)] via-[var(--paper-0)]/74 to-[var(--paper-0)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(58%_52%_at_50%_45%,var(--paper-0)_0%,transparent_78%)]" />
 
       <div className="shell flex flex-col items-center text-center">
         <Reveal className="label text-[var(--muted)]">
@@ -29,9 +29,14 @@ export function FinalCta() {
           {finalCta.headline.map((word, i) => (
             <Reveal key={word} as="span" delay={i} y={28}>
               <span
-                className={
-                  i % 2 === 1 ? "text-[var(--crimson)]" : undefined
-                }
+                style={{
+                  color:
+                    i === 1
+                      ? "var(--crimson)"
+                      : i === 2
+                        ? "var(--azure)"
+                        : undefined,
+                }}
               >
                 {word}
               </span>

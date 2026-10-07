@@ -8,7 +8,7 @@ export function Journey() {
   return (
     <section
       id={journey.id}
-      data-ground="bone"
+      data-ground="ink"
       className="section scroll-mt-16"
       aria-labelledby="journey-title"
     >
@@ -43,8 +43,8 @@ export function Journey() {
                     sizes="(max-width: 768px) 100vw, 1200px"
                     className="-z-10 object-cover object-center"
                   />
-                  <div className="absolute inset-0 -z-10 bg-[var(--blue-1)]/60" />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/82 to-[var(--blue-1)]/72" />
+                  <div className="absolute inset-0 -z-10 bg-[var(--paper-0)]/58" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--paper-0)] via-[var(--paper-0)]/84 to-[var(--paper-0)]/70" />
 
                   <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
                     <div className="flex flex-col gap-2.5">
@@ -73,7 +73,7 @@ export function Journey() {
                     <div
                       key={lane.track}
                       data-track={lane.track}
-                      className="track-field flex flex-col gap-5 bg-[var(--blue-0)] px-4 py-7 md:px-9 md:py-10"
+                      className="track-field flex flex-col gap-5 bg-[var(--paper-0)] px-4 py-7 md:px-9 md:py-10"
                     >
                       <div className="flex items-center gap-2.5">
                         <span
@@ -92,7 +92,7 @@ export function Journey() {
                             <span className="relative flex flex-col items-center">
                               <span
                                 aria-hidden="true"
-                                className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--blue-0)]"
+                                className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--accent)] bg-[var(--paper-0)]"
                               />
                               {i < lane.stops.length - 1 ? (
                                 <span
@@ -149,7 +149,7 @@ function Converge({
   body: string;
 }) {
   return (
-    <div className="relative overflow-hidden border-t border-[var(--line)] bg-[var(--blue-3)] px-5 pb-8 pt-10 text-[var(--fg)] md:px-10 md:pb-12 md:pt-14">
+    <div className="relative overflow-hidden border-t border-[var(--line)] bg-[var(--paper-2)] px-5 pb-8 pt-10 text-[var(--fg)] md:px-10 md:pb-12 md:pt-14">
       {/* Two lines leaning in until they meet. */}
       <svg
         aria-hidden="true"

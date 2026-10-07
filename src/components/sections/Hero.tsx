@@ -20,10 +20,9 @@ export function Hero() {
         <HeroPlate />
         {/* A light veil, weighted towards the type on the left, so the plate
             stays photographic on the right without ever going dark. */}
-        <div className="absolute inset-0 bg-[var(--blue-1)]/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/78 to-[var(--blue-2)]/25" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--blue-0)]/55 via-transparent to-[var(--blue-1)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(72%_52%_at_86%_16%,rgba(22,48,106,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[var(--paper-0)]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--paper-0)] via-[var(--paper-0)]/82 to-[var(--paper-0)]/8" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--paper-0)]/55 via-transparent to-[var(--paper-0)]" />
       </div>
 
       <div className="shell flex min-h-[88svh] flex-col justify-between pb-10 pt-[7.5rem] md:pb-12 md:pt-[8.5rem]">
@@ -58,13 +57,13 @@ export function Hero() {
 
       {/* Two tracks, side by side, from the very first screen. */}
       <div className="shell pb-20 md:pb-28">
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--line)]">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--line)] shadow-[var(--shadow-md)]">
           {tracks.map((track) => (
             <Link
               key={track.id}
               href="#tracks"
               data-track={track.id}
-              className="group relative flex flex-col justify-between gap-7 bg-[var(--blue-0)] p-4 transition-colors duration-[var(--d-base)] hover:bg-[var(--blue-2)] sm:p-6 md:gap-10 md:p-9"
+              className="group relative flex flex-col justify-between gap-7 bg-[var(--paper-0)] p-4 transition-colors duration-[var(--d-base)] hover:bg-[var(--paper-2)] sm:p-6 md:gap-10 md:p-9"
             >
               <span
                 aria-hidden="true"
