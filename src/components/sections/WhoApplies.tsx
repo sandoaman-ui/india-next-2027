@@ -8,7 +8,7 @@ export function WhoApplies() {
   return (
     <section
       id={whoShouldApply.id}
-      data-ground="ink"
+      data-ground="bone"
       className="section"
       aria-labelledby="who-title"
     >
@@ -29,8 +29,12 @@ export function WhoApplies() {
               key={track.id}
               delay={i}
               data-track={track.id}
-              className="flex flex-col gap-6 bg-[var(--ink-900)] p-5 md:p-10"
+              className="relative flex flex-col gap-6 bg-[var(--bone-100)] p-5 pt-7 md:p-10 md:pt-12"
             >
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1.5 bg-[var(--accent)]"
+              />
               <div data-track={track.id} className="flex flex-col gap-3">
                 <span className="label text-[var(--accent)]">
                   {track.shortName}
@@ -72,7 +76,7 @@ export function WhoApplies() {
 
         {/* Callout across both columns. */}
         <Reveal delay={2} className="mt-5">
-          <p className="rounded-[var(--r-lg)] border border-[var(--crimson)]/40 bg-[var(--ink-800)] px-6 py-7 text-center text-[0.9375rem] leading-relaxed md:px-10 md:text-[1.0625rem]">
+          <p className="rounded-[var(--r-lg)] border border-[var(--crimson)]/35 bg-[var(--surface)] px-6 py-7 text-center text-[0.9375rem] leading-relaxed backdrop-blur-sm md:px-10 md:text-[1.0625rem]">
             <strong className="display mr-2 text-[1.3em] font-semibold leading-none text-[var(--crimson)]">
               {whoShouldApply.callout.highlight}
             </strong>

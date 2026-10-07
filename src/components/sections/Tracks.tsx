@@ -6,7 +6,7 @@ export function Tracks() {
   return (
     <section
       id="tracks"
-      data-ground="ink"
+      data-ground="bone"
       className="section scroll-mt-16"
       aria-labelledby="tracks-title"
     >
@@ -17,7 +17,7 @@ export function Tracks() {
             kicker="The Two Tracks"
             title={
               <span id="tracks-title">
-                Two stages.
+                Two tracks.
                 <br />
                 One generation.
               </span>
@@ -25,8 +25,8 @@ export function Tracks() {
           />
           <Reveal delay={2} className="md:max-w-[38ch] md:pb-3">
             <p className="lede text-[var(--muted)]">
-              Two parallel tracks under one brand. Same summit, same two days,
-              two completely different ways to spend them.
+              Two parallel tracks under one forum. Same two days, same
+              building, two completely different ways to spend them.
             </p>
           </Reveal>
         </div>

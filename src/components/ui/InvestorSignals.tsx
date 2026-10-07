@@ -8,11 +8,12 @@ import { EASE_OUT } from "@/lib/motion";
 
 type SignalId = (typeof investorSignals)[number]["id"];
 
+/* Signal colours read off the active ground, so they hold on paper and on navy. */
 const tone: Record<SignalId, string> = {
-  build: "var(--azure-bright)",
-  mentor: "var(--gold-bright)",
-  watch: "var(--bone-400)",
-  pass: "var(--ink-400)",
+  build: "var(--azure)",
+  mentor: "var(--gold)",
+  watch: "var(--muted)",
+  pass: "var(--line-strong)",
 };
 
 /**
@@ -27,7 +28,7 @@ export function InvestorSignals() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="relative overflow-hidden rounded-[var(--r-md)] border border-[var(--line-strong)] bg-[var(--ink-800)] p-5">
+      <div className="relative overflow-hidden rounded-[var(--r-md)] border border-[var(--line-strong)] bg-[var(--surface)] p-5 backdrop-blur-sm">
         <div className="flex items-start justify-between gap-4">
           <div className="flex flex-col gap-1.5">
             <span className="label-sm label text-[var(--muted)]">

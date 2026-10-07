@@ -1,4 +1,4 @@
-import { about } from "@/content/site";
+import { about, walkthrough } from "@/content/site";
 import { scaleStats } from "@/content/stats";
 import { CountUp } from "@/components/ui/CountUp";
 import { Photo } from "@/components/ui/Photo";
@@ -14,7 +14,7 @@ export function About() {
       aria-labelledby="about-title"
     >
       <div className="shell">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
           <div className="flex flex-col gap-10 lg:sticky lg:top-28 lg:self-start">
             <SectionHeading index={about.index} kicker={about.kicker} />
             <Reveal
@@ -22,11 +22,11 @@ export function About() {
               className="grain relative hidden aspect-[4/5] overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] lg:block"
             >
               <Photo
-                name="debatePodiumTwo"
+                name="delegatesFormal"
                 sizes="(max-width: 1024px) 0px, 420px"
-                className="object-cover object-top"
+                className="object-cover object-[55%_35%]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)]/85 via-transparent to-transparent" />
               <p className="label absolute bottom-4 left-4 right-4 text-[var(--bone-200)]">
                 Discover / Compete / Connect / Build / Impact
               </p>
@@ -35,7 +35,10 @@ export function About() {
 
           <div className="flex flex-col gap-10">
             <Reveal>
-              <h2 id="about-title" className="display max-w-[20ch] text-[clamp(1.75rem,3.6vw,2.9rem)]">
+              <h2
+                id="about-title"
+                className="display max-w-[24ch] text-[clamp(1.6rem,3.2vw,2.55rem)] leading-[1.08]"
+              >
                 {about.lead}
               </h2>
             </Reveal>
@@ -46,6 +49,54 @@ export function About() {
                   {about.proposition}
                 </p>
               </blockquote>
+            </Reveal>
+
+            {/* The walk-through sits here, where the column would otherwise run out. */}
+            <Reveal delay={2} className="mt-2">
+              <div className="rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--surface)] p-5 backdrop-blur-sm md:p-7">
+                <div className="flex flex-wrap items-baseline justify-between gap-3">
+                  <h3 className="label text-[var(--crimson)]">
+                    {walkthrough.label}
+                  </h3>
+                  <p className="text-[0.8125rem] text-[var(--muted)]">
+                    {walkthrough.lead}
+                  </p>
+                </div>
+
+                <ol className="mt-6 flex flex-col gap-5">
+                  {walkthrough.days.map((day) => (
+                    <li
+                      key={day.id}
+                      className="flex flex-col gap-3 border-t border-[var(--line)] pt-5 first:border-t-0 first:pt-0 sm:flex-row sm:gap-6"
+                    >
+                      <div className="flex shrink-0 flex-col gap-1.5 sm:w-[9rem]">
+                        <span className="display text-[1.3rem] leading-none">
+                          {day.day}
+                        </span>
+                        <span className="label-sm label text-[var(--muted)]">
+                          {day.venue}
+                        </span>
+                      </div>
+
+                      <div className="flex flex-col gap-3">
+                        <p className="text-[0.9375rem] leading-relaxed">
+                          {day.body}
+                        </p>
+                        <ul className="flex flex-wrap gap-1.5">
+                          {day.tags.map((tag) => (
+                            <li
+                              key={tag}
+                              className="label-sm label rounded-full border border-[var(--line)] px-2.5 py-1.5 text-[var(--muted)]"
+                            >
+                              {tag}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -87,26 +138,26 @@ export function About() {
           ))}
         </Reveal>
 
-        {/* Pull line over photography. */}
+        {/* Pull line over the Conclave hall. */}
         <Reveal className="mt-20 md:mt-28">
           <figure
             data-ground="ink"
             className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] bg-[var(--ink-900)] px-6 py-16 text-[var(--fg)] md:px-14 md:py-24"
           >
             <Photo
-              name="packedHall"
+              name="hallWide"
               sizes="(max-width: 1024px) 100vw, 1200px"
-              className="-z-10 object-cover object-center opacity-30"
+              className="-z-10 object-cover object-center opacity-45"
             />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--ink-900)] via-[var(--ink-900)]/70 to-transparent" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--ink-900)] via-[var(--ink-900)]/82 to-[var(--ink-900)]/40" />
 
-            <figcaption className="display display-md max-w-[20ch] text-balance">
+            <figcaption className="display max-w-[20ch] text-balance text-[clamp(1.6rem,3.6vw,3rem)] leading-[1.02]">
               {about.pull}
             </figcaption>
 
             <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 md:gap-10">
               {scaleStats.map((stat) => (
-                <div key={stat.id} className="flex flex-col gap-1">
+                <div key={stat.id} className="flex flex-col gap-1.5">
                   <dd className="figure text-[clamp(1.9rem,4vw,3rem)]">
                     <CountUp value={stat.value} suffix={stat.suffix} />
                   </dd>

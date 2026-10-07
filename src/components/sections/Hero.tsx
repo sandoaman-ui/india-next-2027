@@ -13,7 +13,7 @@ export function Hero() {
     <section
       id="top"
       data-ground="ink"
-      className="relative isolate overflow-hidden bg-[var(--bg)] text-[var(--fg)]"
+      className="relative isolate overflow-hidden bg-[var(--bg)] bg-[image:var(--bg-grad)] text-[var(--fg)]"
     >
       {/* Full-bleed plate: real delegates, heavily scrimmed so type stays AA. */}
       <div className="grain absolute inset-0 -z-10">
@@ -23,9 +23,10 @@ export function Hero() {
           preload
           className="scale-105 object-cover object-[50%_35%] opacity-[0.38]"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_18%_15%,transparent_0%,var(--ink-900)_72%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--ink-900)] via-transparent to-[var(--ink-900)]" />
-        <div className="absolute inset-0 bg-[var(--ink-900)]/35" />
+        <div className="absolute inset-0 bg-[radial-gradient(125%_95%_at_16%_12%,transparent_0%,var(--ink-900)_74%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--ink-700)] via-transparent to-[var(--ink-900)]" />
+        <div className="absolute inset-0 bg-[var(--ink-900)]/42" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_50%_at_88%_18%,rgba(58,96,180,0.3),transparent_70%)]" />
       </div>
 
       <div className="shell flex min-h-[88svh] flex-col justify-between pb-10 pt-[7.5rem] md:pb-12 md:pt-[8.5rem]">

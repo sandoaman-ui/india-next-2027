@@ -1,8 +1,12 @@
-# India Next 2027
+# Bharat Yuva Niti 2027
 
-The official website for **India Next 2027** — a two-day national youth summit
-organised by **SGCCI** (The Southern Gujarat Chamber of Commerce & Industry) and
-**TPC** (Turning Point).
+The official website for **Bharat Yuva Niti 2027 — National Youth Conclave**, a
+two-day National Youth Forum organised by **SGCCI** (The Southern Gujarat
+Chamber of Commerce & Industry) and **TPC** (Turning Point).
+
+Day 1 runs on a university campus with students split across classrooms; Day 2
+is selection, finals and the National Conclave at **SIECC Convention Centre,
+Sarsana**, in front of 10,000 students.
 
 Single long-scroll homepage, built so content, design and structure can each be
 changed without touching the other two.
@@ -27,9 +31,9 @@ npm run build
 
 ```
 content/              Every string and number on the site. Typed. No copy in components.
-  site.ts             Identity, nav, hero, about, pillars, who-applies, why, final CTA, footer
+  site.ts             Identity, nav, hero, about, walk-through, pillars, who-applies, why, CTA, footer
   stats.ts            THE headline numbers — single source of truth
-  tracks.ts           India Next Debate + India Next Founders (identical shape, see below)
+  tracks.ts           The Debate + the Innovators Challenge (identical shape, see below)
   schedule.ts         The two-day journey, as two parallel lanes
   conclave.ts         Sunday run-of-show + the speaker data shape
   images.ts           Image registry: paths, intrinsic sizes, blur placeholders, alt text
@@ -56,13 +60,17 @@ No component contains a user-visible string. If you find one, it is a bug.
 `src/app/globals.css` holds the whole token layer:
 
 - **Grounds** — `[data-ground="ink"]` / `[data-ground="bone"]` flip the semantic
-  variables (`--fg`, `--bg`, `--muted`, `--line`). Sections set one attribute and
-  everything inside follows, including accents.
-- **Tracks** — `[data-track="debate"]` / `[data-track="founders"]` set `--accent`.
-  A component never hard-codes crimson or azure; it reads `var(--accent)`.
-- **Type** — three faces, mapped to `--font-display` (Fraunces), `--font-sans`
-  (Inter), `--font-mono` (JetBrains Mono), with `.display`, `.figure`, `.label`
-  and `.lede` as the only type primitives.
+  variables (`--fg`, `--bg`, `--bg-grad`, `--muted`, `--line`). Sections set one
+  attribute and everything inside follows, including accents.
+  `ink` is a deep bluish-navy gradient — **flat black is never used anywhere on
+  the site**; `bone` is a cool paper gradient. Both are a constant base colour
+  plus soft radial washes, so stacked sections never show a seam.
+- **Tracks** — `[data-track="debate"]` / `[data-track="founders"]` set `--accent`
+  (deep rose / royal blue) and drive the `.track-field` colour wash. A component
+  never hard-codes an accent; it reads `var(--accent)`.
+- **Type** — three faces, mapped to `--font-display` (Archivo, a tight
+  professional grotesque), `--font-sans` (Inter), `--font-mono` (IBM Plex Mono),
+  with `.display`, `.figure`, `.label` and `.lede` as the only type primitives.
 
 When the design-system HTML arrives, remap the values in `:root` and the two
 ground blocks. No component should need to change.
@@ -71,7 +79,7 @@ ground blocks. No component should need to change.
 
 ## The one rule that cannot be broken
 
-**India Next Debate and India Next Founders are always side by side.**
+**The Debate and the Innovators Challenge are always side by side.**
 
 They are two parallel tracks under one brand — never two sections one after the
 other. This is enforced structurally, not by convention:
@@ -83,9 +91,9 @@ other. This is enforced structurally, not by convention:
 - `src/components/sections/TrackCells.tsx` renders **every** cell for both
   tracks through one `TrackCell` switch. The two columns cannot structurally
   drift — only their content and accent differ.
-- **Desktop (≥1024px):** one CSS grid, three columns (Debate | row label |
-  Founders). Rows are grid rows, so the comparison is guaranteed to read
-  horizontally.
+- **Desktop (≥1024px):** a comparison sheet. A left anchor column names each
+  numbered row; the two tracks sit in their own colour fields to its right, on
+  one shared grid template, so the comparison reads horizontally across.
 - **Below 1024px:** the intro pair stays a compact two-column pair, and a sticky
   two-option switch (both labels always visible) swaps the same rows in place.
 
@@ -103,8 +111,7 @@ mobile bottom bar.
 - **Funding is never promised.** The Founders pathway is discovery, mentorship,
   connections and opportunity. `crossfire.disclaimer` says so on the page.
 - **No sponsor or partner logos above the fold.**
-- Copy hygiene: "Debaters", "curated", "Business Leaders Panel", "SGCCI",
-  "India Next Founders" (never "Innovators Challenge").
+- Copy hygiene: "Debaters", "curated", "Business Leaders Panel", "SGCCI".
 
 ## Accessibility & performance
 
@@ -127,8 +134,8 @@ Everything unconfirmed is marked `// TODO: confirm` in the content files.
 | Item | File |
 |---|---|
 | Young innovators: 1,000 vs 500 in the client brief | `content/stats.ts` |
-| Event dates and host city | `content/site.ts` (`hero.dateline`, `footer.details`) |
-| Venue and full address | `content/site.ts` |
+| Event dates | `content/site.ts` (`hero.dateline`, `footer.details`) |
+| Day 1 university campus and its address | `content/site.ts`, `content/schedule.ts` |
 | Official event email and phone | `content/site.ts` |
 | Official social handles | `content/site.ts` |
 | Live registration / application URLs | `content/site.ts` (`finalCta.actions`) |
@@ -138,6 +145,7 @@ Everything unconfirmed is marked `// TODO: confirm` in the content files.
 | Main-stage finalist count ("Top 20") | `content/tracks.ts` |
 | Exact session timings for both days | `content/schedule.ts` |
 | Conclave speaker line-up and headshots | `content/conclave.ts` |
+| Track naming under the new brand ("The Debate" / "Innovators Challenge") | `content/tracks.ts` |
 | SGCCI / TPC logo files | `src/components/layout/Footer.tsx` |
 | Event startDate / endDate / venue for schema.org | `src/components/StructuredData.tsx` |
 

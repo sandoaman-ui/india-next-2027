@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 import { EASE_OUT } from "@/lib/motion";
 
 /**
- * Sunday's run of show. Panel 03 — where the Debate and Founders winners reach
+ * The Day 2 run of show. Panel 03 — where the winners of both tracks reach
  * the national stage — is highlighted and open by default; it is the link back
  * to the two tracks.
  */

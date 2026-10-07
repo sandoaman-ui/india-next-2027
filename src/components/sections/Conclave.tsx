@@ -38,7 +38,7 @@ export function Conclave() {
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)] via-[var(--ink-900)]/20 to-transparent" />
           <div className="absolute inset-x-5 bottom-5 flex flex-wrap items-end justify-between gap-4 md:inset-x-8 md:bottom-7">
             <p className="label text-[var(--gold)]">
-              Sunday · main stage · 5 hours
+              Day 02 · main stage · 5 hours
             </p>
             <p className="figure text-[clamp(1.75rem,4vw,2.75rem)]">
               {stats.youngIndians.value.toLocaleString("en-IN")}
@@ -60,9 +60,10 @@ export function Conclave() {
                 {conclave.principle}
               </p>
               <p className="mt-5 border-t border-[var(--line)] pt-4 text-[0.8125rem] leading-relaxed text-[var(--muted)]">
-                Panel 03 is where the Debate and Founders winners take this
-                stage. That is the point of the whole weekend.
+                Panel 03 is where the winners of both tracks take this stage.
+                That is the point of the whole forum.
               </p>
+              <p className="label mt-5 text-[var(--gold)]">{conclave.venue}</p>
             </div>
           </Reveal>
 

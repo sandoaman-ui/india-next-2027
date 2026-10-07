@@ -157,13 +157,20 @@ function SignaturePanel({
   note?: string;
 }) {
   return (
-    <div className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--accent)]/45 bg-[var(--ink-800)]">
+    <div
+      data-ground="ink"
+      className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] bg-[var(--ink-800)] text-[var(--fg)] shadow-[0_18px_40px_-24px_rgba(8,14,28,0.55)]"
+    >
       <Photo
         name={image}
         sizes="(max-width: 1024px) 100vw, 44vw"
         className="-z-10 object-cover object-top opacity-[0.22]"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--ink-900)] via-[var(--ink-900)]/88 to-[var(--ink-900)]/55" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--ink-900)] via-[var(--ink-800)]/90 to-[var(--ink-700)]/65" />
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1 bg-[var(--accent)]"
+      />
 
       <div className="flex flex-col gap-5 p-5 sm:p-7">
         <div className="flex flex-col gap-2">
@@ -176,11 +183,11 @@ function SignaturePanel({
           </p>
         </div>
 
-        <ol className="flex flex-col gap-px overflow-hidden rounded-[var(--r-sm)] border border-[var(--line)] bg-[var(--line)]">
+        <ol className="mt-1 flex flex-col gap-px overflow-hidden rounded-[var(--r-sm)] border border-[var(--line)] bg-[var(--line)]">
           {beats.map((beat) => (
             <li
               key={beat.label}
-              className="flex flex-wrap items-baseline gap-x-3 gap-y-1 bg-[var(--ink-900)]/80 px-4 py-3"
+              className="flex flex-wrap items-baseline gap-x-3 gap-y-1 bg-[var(--ink-900)]/70 px-4 py-3"
             >
               <span className="label w-[4.5rem] shrink-0 tabular-nums text-[var(--accent)]">
                 {beat.time}
@@ -211,38 +218,6 @@ function SignaturePanel({
           </p>
         ) : null}
       </div>
-    </div>
-  );
-}
-
-/** The compact identity pair that heads both columns, at every screen size. */
-export function TrackIntro({ track }: { track: Track }) {
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="grain relative aspect-square overflow-hidden rounded-[var(--r-md)] border border-[var(--line)] sm:aspect-[5/4] lg:aspect-[16/10]">
-        <Photo
-          name={track.image}
-          sizes="(max-width: 1024px) 46vw, 42vw"
-          className="object-cover object-top transition-transform duration-[1200ms] ease-[var(--e-out)] hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)] via-transparent to-transparent" />
-        <span className="label absolute bottom-3 left-3 rounded-full bg-[var(--accent)] px-2.5 py-1.5 text-white">
-          {track.shortName}
-        </span>
-      </div>
-
-      <h3 className="display text-[clamp(1.25rem,4.4vw,2.35rem)] leading-[0.95]">
-        {track.name}
-      </h3>
-      <p className="text-[0.8125rem] leading-relaxed text-[var(--muted)] sm:text-sm">
-        {track.oneLiner}
-      </p>
-      <p className="figure mt-1 text-[clamp(1.6rem,6vw,2.6rem)] text-[var(--accent)] lg:hidden">
-        {track.figure}
-        <span className="label mt-2 block text-[var(--muted)]">
-          {track.figureLabel}
-        </span>
-      </p>
     </div>
   );
 }

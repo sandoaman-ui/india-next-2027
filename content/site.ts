@@ -4,9 +4,9 @@
  */
 
 export const site = {
-  name: "India Next 2027",
-  shortName: "India Next",
-  tagline: "India's Largest Youth Summit",
+  name: "Bharat Yuva Niti 2027",
+  shortName: "Bharat Yuva Niti",
+  tagline: "National Youth Conclave",
   presenter: "SGCCI × TPC present",
   organisers: [
     {
@@ -16,15 +16,15 @@ export const site = {
     { abbr: "TPC", name: "Turning Point" },
   ],
   description:
-    "A national youth platform where young Indians debate the country's future, build solutions to real problems, and meet the people who can take those ideas further.",
+    "A National Youth Forum that gives the brightest young minds of India a platform to interact with industry professionals, mentors and national leaders, while actively shaping perspectives through innovation and discourse.",
   // TODO: confirm — final domain for canonical URLs and OG tags.
-  url: "https://indianext2027.vercel.app",
+  url: "https://india-next-2027.vercel.app",
 } as const;
 
 export const nav = {
   links: [
     { label: "About", href: "#about" },
-    { label: "Debate & Founders", href: "#tracks" },
+    { label: "The Two Tracks", href: "#tracks" },
     { label: "Journey", href: "#journey" },
     { label: "Conclave", href: "#conclave" },
     { label: "Apply", href: "#apply" },
@@ -34,21 +34,22 @@ export const nav = {
 
 export const hero = {
   eyebrow: site.presenter,
-  headline: ["India", "Next", "2027"],
-  subheadline: "Where India's Next Generation Takes the Stage.",
+  headline: ["Bharat", "Yuva", "Niti", "2027"],
+  subheadline: "National Youth Conclave",
+  lede: "Where India's next generation takes the stage.",
   support: "Two days that could change what comes next.",
   primaryCta: { label: "Register / Apply Now", href: "#apply" },
-  secondaryCta: { label: "Explore India Next", href: "#about" },
-  // TODO: confirm — event dates and host city.
+  secondaryCta: { label: "Explore the forum", href: "#about" },
+  // TODO: confirm — exact event dates.
   dateline: "Two days · 2027 · Surat, Gujarat",
 } as const;
 
 export const about = {
   id: "about",
   index: "01",
-  kicker: "What is India Next",
+  kicker: "What is Bharat Yuva Niti",
   lead:
-    "India Next 2027 is a national youth platform designed to discover, challenge and connect young Indians with the people and opportunities that can help shape their next decade.",
+    "Bharat Yuva Niti is a National Youth Forum that gives the brightest young minds of India a platform to interact with industry professionals, mentors and national leaders — while actively participating in shaping perspectives through innovation and discourse.",
   proposition:
     "India's next generation should not merely discuss the future of the nation. They should debate it, build it and finance it.",
   beats: [
@@ -56,8 +57,7 @@ export const about = {
       id: "think",
       title: "Think.",
       body: "Debate ideas.",
-      detail:
-        "Argue a position in front of a room that will push back on it.",
+      detail: "Argue a position in front of a room that will push back on it.",
     },
     {
       id: "build",
@@ -79,12 +79,36 @@ export const about = {
   progression: ["Discover", "Compete", "Connect", "Build", "Impact"],
 } as const;
 
+/** The short walk-through that sits inside the About section. */
+export const walkthrough = {
+  label: "Walk through",
+  lead: "Two days, two venues, one progression.",
+  days: [
+    {
+      id: "day-1",
+      day: "Day 1",
+      venue: "University premises",
+      body:
+        "The event is held on a university campus, with students divided across classrooms while sessions for the Debate and the Innovators Challenge run simultaneously.",
+      tags: ["Classroom rounds", "Debate", "Innovators Challenge"],
+    },
+    {
+      id: "day-2",
+      day: "Day 2",
+      venue: "SIECC Convention Centre, Sarsana",
+      body:
+        "Selection and final rounds for the students who qualified, followed by the National Conclave — where 10,000 students witness the Youth Conclave.",
+      tags: ["Selection", "Finals", "National Conclave"],
+    },
+  ],
+} as const;
+
 export const pillars = {
   id: "ecosystem",
   index: "06",
   kicker: "From Dialogue to Action",
   intro:
-    "India Next operates as an ecosystem, not as a conventional conference, startup contest or debate tournament.",
+    "Bharat Yuva Niti operates as an ecosystem, not as a conventional conference, startup contest or debate tournament.",
   items: [
     {
       num: "01",
@@ -131,7 +155,7 @@ export const whoShouldApply = {
   callout: {
     highlight: "No startup required.",
     body:
-      "India Next is about discovering potential, not only rewarding existing credentials.",
+      "Bharat Yuva Niti is about discovering potential, not only rewarding existing credentials.",
   },
 } as const;
 
@@ -169,7 +193,7 @@ export const whyParticipate = {
     },
     {
       id: "network",
-      title: "Join the India Next network",
+      title: "Join the Bharat Yuva Niti network",
       body: "The part that continues long after the two days end.",
     },
   ],
@@ -179,15 +203,19 @@ export const finalCta = {
   id: "apply",
   index: "09",
   headline: ["Think.", "Debate.", "Build.", "Connect."],
-  subheadline: "Your India Next starts here.",
+  subheadline: "Your Bharat Yuva Niti starts here.",
   // TODO: confirm — live registration / application URLs.
   actions: [
     { label: "Apply to Debate", href: "#apply", track: "debate" as const },
-    { label: "Apply to Founders", href: "#apply", track: "founders" as const },
+    {
+      label: "Apply to Innovators",
+      href: "#apply",
+      track: "founders" as const,
+    },
   ],
   secondary: { label: "Explore the Challenges", href: "#tracks" },
   tertiary: {
-    label: "Partner with India Next",
+    label: "Partner with Bharat Yuva Niti",
     href: "#apply",
     note: "For investors, industry and partners",
   },
@@ -195,11 +223,15 @@ export const finalCta = {
 
 export const footer = {
   blurb:
-    "A national youth platform organised by SGCCI and Turning Point. Debate it. Build it. Finance it.",
-  // TODO: confirm — final dates, venue and full address.
+    "A National Youth Forum organised by SGCCI and Turning Point. Debate it. Build it. Finance it.",
+  // TODO: confirm — final dates and the Day 1 campus address.
   details: [
     { label: "Dates", value: "To be announced · 2027" },
-    { label: "Venue", value: "To be announced · Surat, Gujarat" },
+    {
+      label: "Venue",
+      // Day 1 campus is still to be confirmed. // TODO: confirm — Day 1 university campus.
+      value: "University campus · SIECC Convention Centre, Sarsana, Surat",
+    },
     // TODO: confirm — official event email and phone.
     { label: "Enquiries", value: "hello@indianext.in" },
   ],
@@ -207,21 +239,21 @@ export const footer = {
     {
       title: "The Summit",
       links: [
-        { label: "What is India Next", href: "#about" },
-        { label: "India Next Debate", href: "#tracks" },
-        { label: "India Next Founders", href: "#tracks" },
+        { label: "What is Bharat Yuva Niti", href: "#about" },
+        { label: "The Debate", href: "#tracks" },
+        { label: "The Innovators Challenge", href: "#tracks" },
         { label: "The Two-Day Journey", href: "#journey" },
-        { label: "India Next Conclave", href: "#conclave" },
+        { label: "National Youth Conclave", href: "#conclave" },
       ],
     },
     {
       title: "Take Part",
       links: [
         { label: "Apply to Debate", href: "#apply" },
-        { label: "Apply to Founders", href: "#apply" },
+        { label: "Apply to Innovators", href: "#apply" },
         { label: "Who should apply", href: "#who" },
         { label: "Why participate", href: "#why" },
-        { label: "Partner with India Next", href: "#apply" },
+        { label: "Partner with Bharat Yuva Niti", href: "#apply" },
       ],
     },
   ],
@@ -232,5 +264,5 @@ export const footer = {
     { label: "X", href: "#" },
     { label: "YouTube", href: "#" },
   ],
-  legal: "© 2027 India Next. Organised by SGCCI and Turning Point.",
+  legal: "© 2027 Bharat Yuva Niti. Organised by SGCCI and Turning Point.",
 } as const;

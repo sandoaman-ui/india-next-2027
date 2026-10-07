@@ -55,7 +55,7 @@ export function TopicCarousel() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduced ? undefined : { opacity: 0, y: -10 }}
             transition={{ duration: 0.42, ease: EASE_OUT }}
-            className="relative flex h-full min-h-[11.5rem] flex-col justify-between gap-5 rounded-[var(--r-md)] border border-[var(--line-strong)] bg-[var(--ink-800)] p-5 sm:min-h-[10rem] sm:p-6"
+            className="relative flex h-full min-h-[11.5rem] flex-col justify-between gap-5 rounded-[var(--r-md)] border border-[var(--line-strong)] bg-[var(--surface)] p-5 backdrop-blur-sm sm:min-h-[10rem] sm:p-6"
           >
             <p className="text-balance text-[1.0625rem] leading-snug sm:text-[1.1875rem]">
               {topic.text}

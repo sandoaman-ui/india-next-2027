@@ -1,5 +1,5 @@
 /**
- * Sunday's main-stage programme.
+ * The Day 2 main-stage programme at SIECC Convention Centre, Sarsana.
  *
  * No speakers are named anywhere on this site. The `speakers` field on each
  * item is the shape that real names, titles and photographs will drop into
@@ -30,10 +30,11 @@ export type ConclaveItem = {
 export const conclave = {
   id: "conclave",
   index: "05",
-  kicker: "India Next Conclave",
-  header: "India Next Conclave",
+  kicker: "National Youth Conclave",
+  header: "National Youth Conclave",
   subheader:
-    "A high-energy 5-hour programme with curated panels, national leadership and stage moments.",
+    "A high-energy 5-hour programme at SIECC Convention Centre, Sarsana — curated panels, national leadership and stage moments, in front of 10,000 students.",
+  venue: "SIECC Convention Centre, Sarsana, Surat",
   principle:
     "Every panel is curated around Youth, Enterprise and Growth in Business. All stage discussions are moderated by Turning Point leadership, with SGCCI leadership present.",
   speakersPlaceholder: "Speakers to be announced",
@@ -45,7 +46,7 @@ export const conclave = {
       end: "09:15",
       title: "Opening & National Welcome",
       kind: "Opening",
-      body: "TPC × SGCCI opening, event vision and stage-setting.",
+      body: "TPC × SGCCI opening, forum vision and stage-setting.",
       seats: 0,
       speakers: [],
     },
@@ -78,8 +79,8 @@ export const conclave = {
       title: "Panel 03 · Young Leaders & Innovators",
       kind: "Panel",
       body:
-        "Winners of the Debate and Founders tracks take the national stage alongside the people they spent two days convincing.",
-      meta: "Winners of the Debate and Founders tracks · 30 min · moderated",
+        "Winners of the Debate and the Innovators Challenge take the national stage alongside the people they spent two days convincing.",
+      meta: "Winners of both tracks · 30 min · moderated",
       highlight: true,
       seats: 4,
       speakers: [],

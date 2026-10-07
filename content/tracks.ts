@@ -1,7 +1,7 @@
 /**
  * The two flagship tracks.
  *
- * NON-NEGOTIABLE: Debate and Founders are always presented side by side as two
+ * NON-NEGOTIABLE: the Debate and the Innovators Challenge are always presented side by side as two
  * parallel tracks under one brand — never as two sections one after the other.
  * Both objects therefore share an identical shape so the comparison grid can
  * render the same rows, in the same order, for both columns. Keep them in sync.
@@ -52,20 +52,20 @@ export type Track = {
 
 /** The rows of the side-by-side comparison, in order. Shared by both columns. */
 export const comparisonRows = [
-  { id: "identity", label: "Identity" },
-  { id: "figure", label: "Headline number" },
-  { id: "steps", label: "How it works" },
-  { id: "inside", label: "Inside the room" },
-  { id: "signature", label: "Signature moment" },
-  { id: "leadsTo", label: "Where it leads" },
-  { id: "cta", label: "Take part" },
+  { id: "identity", num: "01", label: "What it is" },
+  { id: "figure", num: "02", label: "The scale" },
+  { id: "steps", num: "03", label: "How it runs" },
+  { id: "inside", num: "04", label: "Inside the room" },
+  { id: "signature", num: "05", label: "The moment it turns" },
+  { id: "leadsTo", num: "06", label: "Where it leads" },
+  { id: "cta", num: "07", label: "Take part" },
 ] as const;
 
 export type ComparisonRowId = (typeof comparisonRows)[number]["id"];
 
 export const debate: Track = {
   id: "debate",
-  name: "India Next Debate",
+  name: "The Debate",
   shortName: "Debate",
   identity: "Think & argue",
   identityDetail:
@@ -103,7 +103,7 @@ export const debate: Track = {
   leadsTo: {
     label: "Where it leads",
     body:
-      "The strongest debaters reach the Sunday main stage and join the India Next network.",
+      "The strongest debaters reach the Day 2 finals and the National Conclave stage, and join the Bharat Yuva Niti network.",
   },
   cta: { label: "Apply to Debate", href: "#apply" },
   image: "debateSpeakerMic",
@@ -158,8 +158,8 @@ export const debateTopicsNote =
 
 export const founders: Track = {
   id: "founders",
-  name: "India Next Founders",
-  shortName: "Founders",
+  name: "Innovators Challenge",
+  shortName: "Innovators",
   identity: "Imagine & build",
   identityDetail:
     "A Young India Innovation Platform built for talent discovery and founder development — not simply a pitch competition.",
@@ -209,7 +209,7 @@ export const founders: Track = {
     },
     {
       num: "07",
-      name: "India Next Fellowship",
+      name: "Bharat Yuva Niti Fellowship",
       body:
         "Selected innovators get access to mentorship, networks and future opportunities.",
     },
@@ -223,9 +223,9 @@ export const founders: Track = {
   leadsTo: {
     label: "Where it leads",
     body:
-      "The India Next Fellowship — mentorship, networks and future opportunities.",
+      "The Bharat Yuva Niti Fellowship — mentorship, networks and future opportunities.",
   },
-  cta: { label: "Apply to Founders", href: "#apply" },
+  cta: { label: "Apply to Innovators", href: "#apply" },
   image: "foundersWorktable",
   applyFor:
     "Young people with an idea, prototype, project, startup, technology or social solution — or simply a problem they believe is worth solving.",
@@ -274,10 +274,10 @@ export const crossfire = {
     { time: "2 min", label: "Founder Response / Ask", body: "What you need, and from whom." },
   ],
   question:
-    "If India Next gave you the resources, mentorship and network to build this tomorrow, what would you build?",
+    "If Bharat Yuva Niti gave you the resources, mentorship and network to build this tomorrow, what would you build?",
   // Discovery, mentorship, connections and opportunity. Never funding as a prize.
   disclaimer:
-    "India Next is a discovery and development platform. The pathway is mentorship, connections and opportunity — not a cash prize.",
+    "Bharat Yuva Niti is a discovery and development platform. The pathway is mentorship, connections and opportunity — not a cash prize.",
 };
 
 /** Always iterate this, never the two objects separately. Order is fixed. */

@@ -54,7 +54,7 @@ export function Nav() {
         >
           <Link
             href="#top"
-            className="text-[var(--bone-200)] text-lg"
+            className="shrink-0 whitespace-nowrap text-[var(--bone-200)] text-[1.0625rem] sm:text-lg"
             onClick={() => setOpen(false)}
           >
             <Wordmark />
@@ -75,14 +75,11 @@ export function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <Cta
-              href={nav.cta.href}
-              size="sm"
-              variant="solid"
-              className="hidden sm:inline-flex"
-            >
-              {nav.cta.label}
-            </Cta>
+            <span className="hidden sm:block">
+              <Cta href={nav.cta.href} size="sm" variant="solid">
+                {nav.cta.label}
+              </Cta>
+            </span>
 
             <button
               type="button"

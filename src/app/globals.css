@@ -5,44 +5,55 @@
    Every colour, type step, radius, and motion duration on the site resolves
    to one of these variables. When the design-system HTML lands, remap the
    values here and the whole site follows — no component needs to change.
+
+   Two grounds only: `ink` is a deep bluish-navy gradient (never flat black),
+   `bone` is a cool paper gradient. Sections pick one; everything inside reads
+   --fg / --bg / --bg-grad / --accent and follows.
    ========================================================================= */
 
 :root {
-  /* --- Ground: ink (dark sections) ------------------------------------- */
-  --ink-900: #07080b;
-  --ink-800: #0b0d11;
-  --ink-700: #111419;
-  --ink-600: #181c24;
-  --ink-500: #242933;
-  --ink-400: #3a414f;
+  /* --- Ground: deep bluish navy (dark sections). Never pure black. ------ */
+  --ink-900: #080e1c;
+  --ink-800: #0b1426;
+  --ink-700: #101b31;
+  --ink-600: #16243f;
+  --ink-500: #1e3053;
+  --ink-400: #3a4f72;
 
-  /* --- Ground: bone (light sections) ----------------------------------- */
+  /* --- Ground: cool paper (light sections) ------------------------------ */
   --bone-100: #ffffff;
-  --bone-200: #f7f4ed;
-  --bone-300: #ece7db;
-  --bone-400: #dbd3c2;
-  --bone-500: #b8ae99;
+  --bone-200: #f5f8fd;
+  --bone-300: #e9f0fa;
+  --bone-400: #d6e1f1;
+  --bone-500: #a4b4cd;
 
-  /* --- Track accents ---------------------------------------------------- */
-  /* Debate — crimson. Argument, heat, the stage. */
-  --crimson: #cf1f33;
-  --crimson-bright: #ff4d5f;
-  --crimson-deep: #7e0f1e;
-  /* Founders — ultramarine. Build, capital, signal. */
-  --azure: #2a4ce0;
-  --azure-bright: #7191ff;
-  --azure-deep: #141f73;
+  /* --- Track accents ----------------------------------------------------- */
+  /* The Debate — deep rose. Argument, heat, the floor. */
+  --crimson: #a81228;
+  --crimson-bright: #ff7183;
+  --crimson-deep: #6d0b1a;
+  /* The Innovators Challenge — royal blue. Build, capital, signal. */
+  --azure: #1b3bb5;
+  --azure-bright: #8aa8ff;
+  --azure-deep: #0f2170;
   /* The national stage. */
-  --gold: #c29421;
-  --gold-bright: #f0ca5c;
+  --gold: #8a6208;
+  --gold-bright: #f3cf72;
 
   /* --- Semantic ---------------------------------------------------------- */
   --fg: var(--ink-900);
   --bg: var(--bone-200);
-  --muted: color-mix(in oklab, var(--ink-900) 58%, transparent);
-  --line: color-mix(in oklab, var(--ink-900) 13%, transparent);
-  --line-strong: color-mix(in oklab, var(--ink-900) 26%, transparent);
+  --bg-grad: radial-gradient(
+      78% 56% at 10% 0%,
+      rgba(27, 59, 181, 0.09),
+      transparent 64%
+    ),
+    radial-gradient(66% 50% at 96% 34%, rgba(168, 18, 40, 0.06), transparent 68%);
+  --muted: color-mix(in oklab, var(--ink-900) 62%, transparent);
+  --line: color-mix(in oklab, var(--ink-900) 12%, transparent);
+  --line-strong: color-mix(in oklab, var(--ink-900) 24%, transparent);
   --accent: var(--crimson);
+  --surface: rgba(255, 255, 255, 0.72);
 
   /* --- Radii ------------------------------------------------------------- */
   --r-xs: 4px;
@@ -66,27 +77,45 @@
   --section-y: clamp(5rem, 11vw, 10.5rem);
 }
 
-/* Dark ground: flip the semantic layer, keep the scales intact. */
+/* Dark ground: a deep bluish-navy gradient. Flat black is never used. */
 [data-ground="ink"] {
   --fg: var(--bone-200);
   --bg: var(--ink-900);
-  --muted: color-mix(in oklab, var(--bone-200) 56%, transparent);
-  --line: color-mix(in oklab, var(--bone-200) 15%, transparent);
-  --line-strong: color-mix(in oklab, var(--bone-200) 30%, transparent);
+  /* Constant navy base + soft blooms, so stacked sections never show a seam. */
+  --bg-grad: radial-gradient(
+      85% 62% at 16% 0%,
+      rgba(56, 98, 184, 0.3),
+      transparent 68%
+    ),
+    radial-gradient(72% 55% at 94% 88%, rgba(130, 44, 76, 0.2), transparent 70%);
+  --muted: color-mix(in oklab, var(--bone-200) 60%, transparent);
+  --line: color-mix(in oklab, var(--bone-200) 16%, transparent);
+  --line-strong: color-mix(in oklab, var(--bone-200) 32%, transparent);
   --crimson: var(--crimson-bright);
   --azure: var(--azure-bright);
   --gold: var(--gold-bright);
+  --surface: rgba(255, 255, 255, 0.045);
 }
 
+/* Light ground: cool paper gradient with a faint tint at the edges. */
 [data-ground="bone"] {
   --fg: var(--ink-900);
   --bg: var(--bone-200);
-  --muted: color-mix(in oklab, var(--ink-900) 58%, transparent);
-  --line: color-mix(in oklab, var(--ink-900) 13%, transparent);
-  --line-strong: color-mix(in oklab, var(--ink-900) 26%, transparent);
-  --crimson: #cf1f33;
-  --azure: #2a4ce0;
-  --gold: #a87f14;
+  /* Constant paper base + soft blooms, so stacked sections never show a seam. */
+  --bg-grad: radial-gradient(
+      78% 56% at 10% 0%,
+      rgba(27, 59, 181, 0.09),
+      transparent 64%
+    ),
+    radial-gradient(66% 50% at 96% 34%, rgba(168, 18, 40, 0.06), transparent 68%),
+    radial-gradient(92% 58% at 52% 104%, rgba(27, 59, 181, 0.07), transparent 66%);
+  --muted: color-mix(in oklab, var(--ink-900) 62%, transparent);
+  --line: color-mix(in oklab, var(--ink-900) 12%, transparent);
+  --line-strong: color-mix(in oklab, var(--ink-900) 24%, transparent);
+  --crimson: #a81228;
+  --azure: #1b3bb5;
+  --gold: #8a6208;
+  --surface: rgba(255, 255, 255, 0.72);
 }
 
 /* Track scoping: set --accent once, let every child read it. */
@@ -137,7 +166,7 @@
   --color-line-strong: var(--line-strong);
   --color-accent: var(--accent);
 
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-label), ui-monospace, SFMono-Regular, monospace;
 
@@ -168,6 +197,11 @@
 
   body {
     background-color: var(--ink-900);
+    background-image: radial-gradient(
+      90% 50% at 18% 0%,
+      rgba(56, 98, 184, 0.28),
+      transparent 70%
+    );
     color: var(--fg);
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-synthesis-weight: none;
@@ -227,22 +261,23 @@
 
   .section {
     background-color: var(--bg);
+    background-image: var(--bg-grad);
     color: var(--fg);
     padding-block: var(--section-y);
     position: relative;
   }
 
-  /* Editorial display type. Fraunces, tightened, optically sized. */
+  /* Display type. A tight, professional grotesque — authority without flourish. */
   .display {
-    font-family: var(--font-display), Georgia, serif;
-    font-weight: 600;
-    letter-spacing: -0.028em;
-    line-height: 0.92;
-    font-optical-sizing: auto;
+    font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.033em;
+    line-height: 0.94;
   }
 
   .display-xl {
-    font-size: clamp(3.4rem, 13vw, 11rem);
+    font-size: clamp(3rem, 11.5vw, 9.5rem);
+    letter-spacing: -0.042em;
   }
   .display-lg {
     font-size: clamp(2.6rem, 7.2vw, 6rem);
@@ -260,7 +295,7 @@
     font-family: var(--font-mono), ui-monospace, monospace;
     font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     line-height: 1;
   }
@@ -272,11 +307,11 @@
 
   /* Big animated figures. Tabular so digits don't jitter mid-count. */
   .figure {
-    font-family: var(--font-display), Georgia, serif;
-    font-weight: 600;
+    font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.04em;
-    line-height: 0.86;
+    letter-spacing: -0.045em;
+    line-height: 0.9;
   }
 
   .lede {
@@ -298,6 +333,14 @@
     opacity: 0.4;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* A track column's colour field. Reads as territory, not as a border box. */
+  .track-field {
+    background-color: color-mix(in oklab, var(--accent) 5%, transparent);
+  }
+  .track-field-strong {
+    background-color: color-mix(in oklab, var(--accent) 9%, transparent);
   }
 
   /* A single-pixel rule that reads as a drawn line, not a border. */

@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Inter } from "next/font/google";
 
 import { site } from "@/content/site";
 import "./globals.css";
 
-/* Editorial display serif — headlines and the big figures. */
-const fraunces = Fraunces({
+/* Display grotesque — headlines and the big figures. Professional, not decorative. */
+const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
+  variable: "--font-archivo",
 });
 
 /* Interface and body copy. */
@@ -19,8 +19,9 @@ const inter = Inter({
 });
 
 /* Eyebrows, step numbers, timecodes. */
-const mono = JetBrains_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
   variable: "--font-mono-label",
 });
@@ -34,12 +35,12 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "India Next 2027",
+    "Bharat Yuva Niti 2027",
+    "National Youth Conclave",
     "SGCCI",
     "Turning Point",
-    "youth summit India",
-    "India Next Debate",
-    "India Next Founders",
+    "National Youth Forum India",
+    "Innovators Challenge",
     "ArgueFest",
     "student innovators",
     "national youth conclave",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07080b",
+  themeColor: "#080e1c",
   colorScheme: "dark",
 };
 
@@ -73,7 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${fraunces.variable} ${inter.variable} ${mono.variable}`}
+      className={`${archivo.variable} ${inter.variable} ${mono.variable}`}
     >
       <body>{children}</body>
     </html>
