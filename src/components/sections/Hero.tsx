@@ -5,7 +5,7 @@ import { heroStats } from "@/content/stats";
 import { tracks } from "@/content/tracks";
 import { CountUp } from "@/components/ui/CountUp";
 import { Arrow } from "@/components/ui/Cta";
-import { Photo } from "@/components/ui/Photo";
+import { HeroPlate } from "./HeroPlate";
 import { HeroTitle } from "./HeroTitle";
 
 export function Hero() {
@@ -17,12 +17,7 @@ export function Hero() {
     >
       {/* Full-bleed plate: real delegates, heavily scrimmed so type stays AA. */}
       <div className="grain absolute inset-0 -z-10">
-        <Photo
-          name="heroAuditorium"
-          sizes="100vw"
-          preload
-          className="scale-105 object-cover object-[50%_35%]"
-        />
+        <HeroPlate />
         {/* A light veil, weighted towards the type on the left, so the plate
             stays photographic on the right without ever going dark. */}
         <div className="absolute inset-0 bg-[var(--blue-1)]/45" />

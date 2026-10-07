@@ -62,12 +62,13 @@ export function WhyParticipate() {
               key={item.id}
               as="li"
               delay={i}
-              className="flex flex-col gap-4 bg-[var(--bg)] py-8 sm:px-7 lg:px-9"
+              className="group flex flex-col gap-4 bg-[var(--blue-0)] py-8 transition-colors duration-[var(--d-base)] hover:bg-[var(--blue-2)] sm:px-7 lg:px-9"
             >
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                className="h-7 w-7 text-[var(--crimson)]"
+                className="h-7 w-7 transition-transform duration-[var(--d-base)] ease-[var(--e-out)] group-hover:-translate-y-0.5"
+                style={{ color: i % 2 ? "var(--azure)" : "var(--crimson)" }}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.4"

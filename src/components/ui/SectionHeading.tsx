@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
+import { DrawRule } from "./DrawRule";
 import { Reveal } from "./Reveal";
 
 type Props = {
@@ -33,9 +34,9 @@ export function SectionHeading({
       )}
     >
       <Reveal className="flex items-center gap-4">
-        <span className="label text-[var(--accent)]">{index}</span>
-        <span className="h-px w-10 bg-[var(--line-strong)]" aria-hidden="true" />
-        <span className="label text-[var(--muted)]">{kicker}</span>
+        <span className="label text-[var(--crimson)]">{index}</span>
+        <DrawRule />
+        <span className="label text-[var(--azure)]">{kicker}</span>
       </Reveal>
 
       {title ? (

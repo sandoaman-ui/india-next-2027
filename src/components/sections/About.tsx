@@ -37,9 +37,20 @@ export function About() {
             <Reveal>
               <h2
                 id="about-title"
-                className="display max-w-[24ch] text-[clamp(1.6rem,3.2vw,2.55rem)] leading-[1.08]"
+                className="display-prose max-w-[26ch] text-[clamp(1.5rem,3vw,2.4rem)]"
               >
-                {about.lead}
+                {about.lead.map((seg, i) =>
+                  seg.strong ? (
+                    <strong
+                      key={i}
+                      className={seg.accent ? "text-[var(--crimson)]" : undefined}
+                    >
+                      {seg.text}
+                    </strong>
+                  ) : (
+                    <span key={i}>{seg.text}</span>
+                  ),
+                )}
               </h2>
             </Reveal>
 
@@ -53,7 +64,11 @@ export function About() {
 
             {/* The walk-through sits here, where the column would otherwise run out. */}
             <Reveal delay={2} className="mt-2">
-              <div className="rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--surface)] p-5 backdrop-blur-sm md:p-7">
+              <div className="relative overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--surface)] p-5 pt-7 backdrop-blur-sm md:p-7 md:pt-9">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--crimson)] to-[var(--azure)]"
+                />
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
                   <h3 className="label text-[var(--crimson)]">
                     {walkthrough.label}
@@ -110,7 +125,10 @@ export function About() {
               delay={i}
               className="flex flex-col gap-3 bg-[var(--bg)] py-8 md:px-7 md:first:pl-0"
             >
-              <span className="label text-[var(--muted)]">
+              <span
+                className="label"
+                style={{ color: i % 2 ? "var(--azure)" : "var(--crimson)" }}
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="display display-sm">
@@ -129,11 +147,21 @@ export function About() {
           {about.progression.map((step, i) => (
             <span key={step} className="flex items-center gap-3">
               {i > 0 ? (
-                <span aria-hidden="true" className="text-[var(--line-strong)]">
-                  /
-                </span>
+                <span
+                  aria-hidden="true"
+                  className="h-1 w-1 rounded-full bg-[var(--line-strong)]"
+                />
               ) : null}
-              <span className="label text-[var(--muted)]">{step}</span>
+              <span
+                className="label rounded-full border px-3 py-2"
+                style={{
+                  color: i % 2 ? "var(--azure)" : "var(--crimson)",
+                  borderColor: "var(--line)",
+                  backgroundColor: "var(--surface)",
+                }}
+              >
+                {step}
+              </span>
             </span>
           ))}
         </Reveal>
@@ -141,15 +169,19 @@ export function About() {
         {/* Pull line over the Conclave hall. */}
         <Reveal className="mt-20 md:mt-28">
           <figure
-            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--blue-2)] px-6 py-16 text-[var(--fg)] md:px-14 md:py-24"
+            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--blue-2)] px-6 pb-16 pt-18 text-[var(--fg)] md:px-14 md:pb-24 md:pt-26"
           >
             <Photo
               name="hallWide"
               sizes="(max-width: 1024px) 100vw, 1200px"
               className="-z-10 object-cover object-center"
             />
-            <div className="absolute inset-0 -z-10 bg-[var(--blue-1)]/48" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/84 to-[var(--blue-2)]/22" />
+            <div className="absolute inset-0 -z-10 bg-[var(--blue-1)]/38" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--blue-1)] via-[var(--blue-1)]/82 to-[var(--blue-2)]/14" />
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--crimson)] via-[var(--azure)] to-[var(--crimson)]"
+            />
 
             <figcaption className="display max-w-[20ch] text-balance text-[clamp(1.6rem,3.6vw,3rem)] leading-[1.02]">
               {about.pull}

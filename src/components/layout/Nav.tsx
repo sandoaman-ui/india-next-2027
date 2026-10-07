@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { nav, site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Cta } from "@/components/ui/Cta";
+import { ScrollProgress } from "./ScrollProgress";
 import { Wordmark } from "./Wordmark";
 import { EASE_OUT } from "@/lib/motion";
 
@@ -138,6 +139,8 @@ export function Nav() {
             </motion.div>
           ) : null}
         </AnimatePresence>
+
+        <ScrollProgress />
       </header>
     </>
   );

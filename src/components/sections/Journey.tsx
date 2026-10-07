@@ -33,7 +33,11 @@ export function Journey() {
             <Reveal key={day.id} delay={dayIndex}>
               <article className="overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--bone-100)]">
                 {/* Day header, over a plate from the floor. */}
-                <header className="grain relative isolate overflow-hidden border-b border-[var(--line)] px-5 py-8 text-[var(--fg)] md:px-10 md:py-12">
+                <header className="grain relative isolate overflow-hidden border-b border-[var(--line)] px-5 pb-8 pt-10 text-[var(--fg)] md:px-10 md:pb-12 md:pt-14">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--crimson)] to-[var(--azure)]"
+                  />
                   <Photo
                     name={day.image}
                     sizes="(max-width: 768px) 100vw, 1200px"

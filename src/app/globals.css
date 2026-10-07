@@ -15,13 +15,13 @@
 :root {
   /* --- The blue family, light to deep ----------------------------------- */
   --blue-0: #ffffff;
-  --blue-1: #f6f9fd;
-  --blue-2: #eef4fc;
-  --blue-3: #e3edf9;
-  --blue-4: #d4e3f5;
-  --blue-5: #bed3ed;
-  --blue-6: #9ab7dd;
-  --blue-7: #6c8dbd;
+  --blue-1: #dfeaf7;
+  --blue-2: #d3e3f4;
+  --blue-3: #c3d9f0;
+  --blue-4: #b0cae8;
+  --blue-5: #8fb2df;
+  --blue-6: #6a93cd;
+  --blue-7: #426cab;
 
   /* --- Ink: dark blue, never black -------------------------------------- */
   --navy-900: #0d1f42;
@@ -30,10 +30,10 @@
   --navy-600: #24458a;
 
   /* --- Accents ----------------------------------------------------------- */
-  --red: #b4121f;
-  --red-soft: #d93a46;
-  --navy: #16306a;
-  --navy-soft: #2a4d9c;
+  --red: #be1324;
+  --red-soft: #e03b4a;
+  --navy: #17347a;
+  --navy-soft: #2f58b4;
 
   /* --- Legacy scale names, remapped onto the blue family ----------------- */
   /* Components read these; keeping the names avoids churn when the palette
@@ -67,15 +67,16 @@
   --bg: var(--blue-1);
   --bg-grad: radial-gradient(
       78% 56% at 10% 0%,
-      rgba(22, 48, 106, 0.08),
+      rgba(23, 52, 122, 0.16),
       transparent 64%
     ),
-    radial-gradient(66% 50% at 96% 34%, rgba(180, 18, 31, 0.045), transparent 68%);
-  --muted: color-mix(in oklab, var(--navy-900) 62%, transparent);
-  --line: color-mix(in oklab, var(--navy-900) 13%, transparent);
-  --line-strong: color-mix(in oklab, var(--navy-900) 26%, transparent);
+    radial-gradient(66% 50% at 96% 30%, rgba(190, 19, 36, 0.09), transparent 68%),
+    radial-gradient(88% 54% at 52% 104%, rgba(23, 52, 122, 0.12), transparent 66%);
+  --muted: color-mix(in oklab, var(--navy-900) 68%, transparent);
+  --line: color-mix(in oklab, var(--navy-900) 15%, transparent);
+  --line-strong: color-mix(in oklab, var(--navy-900) 30%, transparent);
   --accent: var(--crimson);
-  --surface: rgba(255, 255, 255, 0.76);
+  --surface: rgba(255, 255, 255, 0.82);
 
   /* --- Radii ------------------------------------------------------------- */
   --r-xs: 4px;
@@ -107,26 +108,28 @@
   --bg: var(--blue-3);
   --bg-grad: radial-gradient(
       85% 62% at 14% 0%,
-      rgba(22, 48, 106, 0.1),
+      rgba(23, 52, 122, 0.2),
       transparent 66%
     ),
-    radial-gradient(70% 55% at 92% 86%, rgba(180, 18, 31, 0.05), transparent 70%);
-  --surface: rgba(255, 255, 255, 0.72);
-  --line: color-mix(in oklab, var(--navy-900) 15%, transparent);
-  --line-strong: color-mix(in oklab, var(--navy-900) 28%, transparent);
+    radial-gradient(70% 55% at 92% 86%, rgba(190, 19, 36, 0.1), transparent 70%),
+    radial-gradient(60% 46% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 70%);
+  --surface: rgba(255, 255, 255, 0.8);
+  --line: color-mix(in oklab, var(--navy-900) 17%, transparent);
+  --line-strong: color-mix(in oklab, var(--navy-900) 32%, transparent);
 }
 
 [data-ground="bone"] {
   --bg: var(--blue-1);
   --bg-grad: radial-gradient(
       78% 56% at 10% 0%,
-      rgba(22, 48, 106, 0.075),
+      rgba(23, 52, 122, 0.15),
       transparent 64%
     ),
-    radial-gradient(66% 50% at 96% 34%, rgba(180, 18, 31, 0.04), transparent 68%);
-  --surface: rgba(255, 255, 255, 0.78);
-  --line: color-mix(in oklab, var(--navy-900) 12%, transparent);
-  --line-strong: color-mix(in oklab, var(--navy-900) 24%, transparent);
+    radial-gradient(66% 50% at 96% 30%, rgba(190, 19, 36, 0.085), transparent 68%),
+    radial-gradient(88% 54% at 52% 104%, rgba(23, 52, 122, 0.11), transparent 66%);
+  --surface: rgba(255, 255, 255, 0.82);
+  --line: color-mix(in oklab, var(--navy-900) 14%, transparent);
+  --line-strong: color-mix(in oklab, var(--navy-900) 28%, transparent);
 }
 
 /* Track scoping: set --accent once, let every child read it. */
@@ -280,6 +283,20 @@
     line-height: 1.02;
   }
 
+  /* A display-size run of text set light, so only the marked phrases carry
+     weight. Used for long statements that would otherwise read as a slab. */
+  .display-prose {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.012em;
+    line-height: 1.22;
+    color: var(--muted);
+  }
+  .display-prose strong {
+    font-weight: 600;
+    color: var(--fg);
+  }
+
   .display-xl {
     font-size: clamp(3rem, 11vw, 9rem);
     letter-spacing: -0.026em;
@@ -330,10 +347,10 @@
 
   /* A track column's colour field. Reads as territory, not as a border box. */
   .track-field {
-    background-color: color-mix(in oklab, var(--accent) 5%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 8%, transparent);
   }
   .track-field-strong {
-    background-color: color-mix(in oklab, var(--accent) 9%, transparent);
+    background-color: color-mix(in oklab, var(--accent) 14%, transparent);
   }
 
   /* A raised panel used where a section needs emphasis without going dark. */

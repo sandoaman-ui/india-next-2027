@@ -44,12 +44,33 @@ export const hero = {
   dateline: "Two days · 2027 · Surat, Gujarat",
 } as const;
 
+/**
+ * A run of text where only the load-bearing phrases carry weight. Everything
+ * without `strong` renders light, so the paragraph reads as a sentence rather
+ * than a block of bold.
+ */
+export type LeadSegment = {
+  text: string;
+  strong?: boolean;
+  /** Reserved for the single phrase that should carry the accent colour. */
+  accent?: boolean;
+};
+
 export const about = {
   id: "about",
   index: "01",
   kicker: "What is Bharat Yuva Niti",
-  lead:
-    "Bharat Yuva Niti is a National Youth Forum that gives the brightest young minds of India a platform to interact with industry professionals, mentors and national leaders — while actively participating in shaping perspectives through innovation and discourse.",
+  lead: [
+    { text: "Bharat Yuva Niti is a " },
+    { text: "National Youth Forum", strong: true, accent: true },
+    { text: " that gives the " },
+    { text: "brightest young minds of India", strong: true },
+    { text: " a platform to interact with " },
+    { text: "industry professionals, mentors and national leaders", strong: true },
+    { text: " — while actively participating in shaping perspectives through " },
+    { text: "innovation and discourse", strong: true },
+    { text: "." },
+  ] satisfies LeadSegment[],
   proposition:
     "India's next generation should not merely discuss the future of the nation. They should debate it, build it and finance it.",
   beats: [

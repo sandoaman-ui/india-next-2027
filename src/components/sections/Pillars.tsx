@@ -36,9 +36,21 @@ export function Pillars() {
               key={item.num}
               as="li"
               delay={i}
-              className="group flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--bg)] p-6 transition-colors duration-[var(--d-base)] hover:bg-[var(--bone-100)] md:p-8"
+              className="group relative flex min-h-[13rem] flex-col justify-between gap-8 bg-[var(--blue-0)] p-6 pt-8 transition-colors duration-[var(--d-base)] hover:bg-[var(--blue-2)] md:p-8 md:pt-10"
             >
-              <span className="label text-[var(--muted)]">{item.num}</span>
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-[var(--d-slow)] ease-[var(--e-out)] group-hover:scale-x-100"
+                style={{
+                  backgroundColor: i % 2 ? "var(--azure)" : "var(--crimson)",
+                }}
+              />
+              <span
+                className="label"
+                style={{ color: i % 2 ? "var(--azure)" : "var(--crimson)" }}
+              >
+                {item.num}
+              </span>
               <span className="flex flex-col gap-2.5">
                 <span className="display display-sm">{item.title}</span>
                 <span className="max-w-[32ch] text-[0.875rem] leading-relaxed text-[var(--muted)]">
