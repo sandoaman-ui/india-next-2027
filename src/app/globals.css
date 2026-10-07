@@ -33,9 +33,9 @@
   --blue: #1240c4;
   --blue-deep: #0a2a85;
   --blue-soft: #3e68e2;
-  --red: #d01026;
-  --red-deep: #8f0a18;
-  --red-soft: #e63b4c;
+  --red: #99101e;
+  --red-deep: #5f0a13;
+  --red-soft: #c0303c;
 
   /* --- Legacy scale names, remapped. Components read these. ------------- */
   --ink-900: var(--black);
@@ -95,7 +95,7 @@
   /* --- Rhythm ------------------------------------------------------------ */
   --gutter: 1.25rem;
   --shell: 86rem;
-  --section-y: clamp(5rem, 11vw, 10.5rem);
+  --section-y: clamp(3.25rem, 6.5vw, 6rem);
 }
 
 /*

@@ -29,7 +29,7 @@ export type ConclaveItem = {
 
 export const conclave = {
   id: "conclave",
-  index: "05",
+  index: "03",
   kicker: "National Youth Conclave",
   header: "National Youth Conclave",
   subheader:

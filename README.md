@@ -31,9 +31,9 @@ npm run build
 
 ```
 content/              Every string and number on the site. Typed. No copy in components.
-  site.ts             Identity, nav, hero, about, walk-through, pillars, who-applies, why, CTA, footer
+  site.ts             Identity, nav, hero, about, walk-through, why, CTA, footer
   stats.ts            THE headline numbers — single source of truth
-  tracks.ts           The Debate + the Innovators Challenge (identical shape, see below)
+  tracks.ts           The Debate + the Innovators Challenge (see "Removed sections")
   schedule.ts         The two-day journey, as two parallel lanes
   conclave.ts         Sunday run-of-show + the speaker data shape
   images.ts           Image registry: paths, intrinsic sizes, blur placeholders, alt text
@@ -59,6 +59,9 @@ No component contains a user-visible string. If you find one, it is a bug.
 
 `src/app/globals.css` holds the whole token layer:
 
+**Page order:** Hero · 01 About · 02 The Two-Day Journey · 03 National Youth
+Conclave · 04 Why Participate · 05 Apply.
+
 - **Three colours on white.** A white and neutral-paper base carries near-black
   type, with exactly two accents: **red** (the Debate) and **blue** (the
   Innovators Challenge). The grounds hold no colour cast at all — every bit of
@@ -82,31 +85,21 @@ ground blocks. No component should need to change.
 
 ---
 
-## The one rule that cannot be broken
+## Removed sections
 
-**The Debate and the Innovators Challenge are always side by side.**
+Three sections were removed on request and their components deleted: the
+side-by-side **Debate | Innovators Challenge** comparison, **From Dialogue to
+Action** (the five pillars) and **Who Should Apply**.
 
-They are two parallel tracks under one brand — never two sections one after the
-other. This is enforced structurally, not by convention:
+Their copy is still in the repo — `content/tracks.ts` keeps `comparisonRows`,
+both step lists, `debateTopics`, `chaosBeats`, `investorSignals`,
+`investorsNote` and `crossfire` — so any of them can be rebuilt without
+re-sourcing a word. The live page uses only each track's `name`, `shortName`,
+`identity`, `figure`, `oneLiner`, `cta` and `image`.
 
-- `content/tracks.ts` gives both tracks an **identical type**, so a field can
-  never exist on one side and not the other.
-- `comparisonRows` defines the rows once. Both columns render from the same
-  array, in the same order.
-- `src/components/sections/TrackCells.tsx` renders **every** cell for both
-  tracks through one `TrackCell` switch. The two columns cannot structurally
-  drift — only their content and accent differ.
-- **Desktop (≥1024px):** a comparison sheet. A left anchor column names each
-  numbered row; the two tracks sit in their own colour fields to its right, on
-  one shared grid template, so the comparison reads horizontally across.
-- **Below 1024px:** the intro pair stays a compact two-column pair, and a sticky
-  two-option switch (both labels always visible) swaps the same rows in place.
-
-The rule also holds in the hero track cards, the two-day journey (two parallel
-lanes, side by side even at 375px), "Who should apply", the final CTA, and the
-mobile bottom bar.
-
----
+Both tracks still appear **side by side** everywhere they appear at all: the
+hero cards, the two parallel lanes in the Journey, the final CTA, and the
+mobile bottom bar — including at 375px.
 
 ## Deliberate constraints
 

@@ -22,14 +22,10 @@ export function About() {
               className="grain relative hidden aspect-[4/5] overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] lg:block"
             >
               <Photo
-                name="delegatesFormal"
+                name="aboutSpeaker"
                 sizes="(max-width: 1024px) 0px, 420px"
-                className="object-cover object-[55%_35%]"
+                className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper-0)] via-[var(--paper-0)]/25 to-transparent" />
-              <p className="label absolute bottom-4 left-4 right-4 text-[var(--navy)]">
-                Discover / Compete / Connect / Build / Impact
-              </p>
             </Reveal>
           </div>
 
@@ -62,62 +58,38 @@ export function About() {
               </blockquote>
             </Reveal>
 
-            {/* The walk-through sits here, where the column would otherwise run out. */}
+            {/* The walk-through: two days, set as plain text under a rule. */}
             <Reveal delay={2} className="mt-2">
-              <div className="panel relative overflow-hidden rounded-[var(--r-lg)] p-5 pt-7 md:p-7 md:pt-9">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--crimson)] to-[var(--azure)]"
-                />
-                <div className="flex flex-wrap items-baseline justify-between gap-3">
-                  <h3 className="label text-[var(--crimson)]">
-                    {walkthrough.label}
-                  </h3>
-                  <p className="text-[0.8125rem] text-[var(--muted)]">
-                    {walkthrough.lead}
-                  </p>
-                </div>
+              <h3 className="label border-b border-[var(--line-strong)] pb-3 text-[var(--crimson)]">
+                {walkthrough.label}
+              </h3>
 
-                <ol className="mt-6 flex flex-col gap-5">
-                  {walkthrough.days.map((day) => (
-                    <li
-                      key={day.id}
-                      className="flex flex-col gap-3 border-t border-[var(--line)] pt-5 first:border-t-0 first:pt-0 sm:flex-row sm:gap-6"
-                    >
-                      <div className="flex shrink-0 flex-col gap-1.5 sm:w-[9rem]">
-                        <span className="display text-[1.3rem] leading-none">
-                          {day.day}
-                        </span>
-                        <span className="label-sm label text-[var(--muted)]">
-                          {day.venue}
-                        </span>
-                      </div>
-
-                      <div className="flex flex-col gap-3">
-                        <p className="text-[0.9375rem] leading-relaxed">
-                          {day.body}
-                        </p>
-                        <ul className="flex flex-wrap gap-1.5">
-                          {day.tags.map((tag) => (
-                            <li
-                              key={tag}
-                              className="label-sm label rounded-full border border-[var(--line)] px-2.5 py-1.5 text-[var(--muted)]"
-                            >
-                              {tag}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              <dl className="mt-6 flex flex-col gap-6">
+                {walkthrough.days.map((day) => (
+                  <div
+                    key={day.id}
+                    className="grid gap-2 border-t border-[var(--line)] pt-6 first:border-t-0 first:pt-0 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-7"
+                  >
+                    <dt className="flex flex-col gap-1">
+                      <span className="display text-[1.25rem] leading-none">
+                        {day.day}
+                      </span>
+                      <span className="text-[0.8125rem] leading-snug text-[var(--muted)]">
+                        {day.venue}
+                      </span>
+                    </dt>
+                    <dd className="text-[0.9375rem] leading-relaxed text-[var(--muted)]">
+                      {day.body}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </Reveal>
           </div>
         </div>
 
         {/* Think / Build / Connect */}
-        <ul className="mt-20 grid gap-px border-y border-[var(--line)] bg-[var(--line)] md:mt-24 md:grid-cols-3">
+        <ul className="mt-16 grid gap-px border-y border-[var(--line)] bg-[var(--line)] md:mt-20 md:grid-cols-3">
           {about.beats.map((beat, i) => (
             <Reveal
               key={beat.id}
@@ -142,35 +114,9 @@ export function About() {
           ))}
         </ul>
 
-        {/* Progression — Discover → Compete → Connect → Build → Impact */}
-        <Reveal className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-2">
-          {about.progression.map((step, i) => (
-            <span key={step} className="flex items-center gap-3">
-              {i > 0 ? (
-                <span
-                  aria-hidden="true"
-                  className="h-1 w-1 rounded-full bg-[var(--line-strong)]"
-                />
-              ) : null}
-              <span
-                className="label rounded-full border px-3 py-2"
-                style={{
-                  color: i % 2 ? "var(--azure)" : "var(--crimson)",
-                  borderColor: "var(--line)",
-                  backgroundColor: "var(--paper-0)",
-                }}
-              >
-                {step}
-              </span>
-            </span>
-          ))}
-        </Reveal>
-
         {/* Pull line over the Conclave hall. */}
-        <Reveal className="mt-20 md:mt-28">
-          <figure
-            className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--paper-0)] px-6 pb-16 pt-18 text-[var(--fg)] shadow-[var(--shadow-md)] md:px-14 md:pb-24 md:pt-26"
-          >
+        <Reveal className="mt-16 md:mt-20">
+          <figure className="grain relative isolate overflow-hidden rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--paper-0)] px-6 pb-16 pt-18 text-[var(--fg)] shadow-[var(--shadow-md)] md:px-14 md:pb-24 md:pt-26">
             <Photo
               name="hallWide"
               sizes="(max-width: 1024px) 100vw, 1200px"
@@ -188,9 +134,12 @@ export function About() {
             </figcaption>
 
             <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 md:gap-10">
-              {scaleStats.map((stat) => (
+              {scaleStats.map((stat, i) => (
                 <div key={stat.id} className="flex flex-col gap-1.5">
-                  <dd className="figure text-[clamp(1.9rem,4vw,3rem)]">
+                  <dd
+                    className="figure text-[clamp(1.9rem,4vw,3rem)]"
+                    style={{ color: i % 2 ? "var(--azure)" : "var(--crimson)" }}
+                  >
                     <CountUp value={stat.value} suffix={stat.suffix} />
                   </dd>
                   <dt className="text-[0.8125rem] text-[var(--muted)]">

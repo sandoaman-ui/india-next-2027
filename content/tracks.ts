@@ -1,6 +1,12 @@
 /**
  * The two flagship tracks.
  *
+ * NOTE: the side-by-side comparison section was removed on request. The content
+ * below it consumed — comparisonRows, the step lists, debateTopics, chaosBeats,
+ * investorSignals, investorsNote and crossfire — is kept here so the section can
+ * be restored without re-sourcing any copy. What the live page still uses is the
+ * name, shortName, identity, figure, oneLiner, cta and image on each track.
+ *
  * NON-NEGOTIABLE: the Debate and the Innovators Challenge are always presented side by side as two
  * parallel tracks under one brand — never as two sections one after the other.
  * Both objects therefore share an identical shape so the comparison grid can

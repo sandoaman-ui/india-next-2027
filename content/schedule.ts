@@ -35,12 +35,12 @@ export type Day = {
   image: ImageKey;
   lanes: [Lane, Lane];
   shared?: { label: string; body: string };
-  converge?: { label: string; title: string; body: string };
+  converge?: { label: string; title: string };
 };
 
 export const journey = {
   id: "journey",
-  index: "04",
+  index: "02",
   kicker: "The Two-Day Journey",
   lead:
     "10,000 people are not doing the same thing for two days. The forum branches into parallel tracks across a campus, then converges on one stage — which is exactly what makes the scale credible.",
@@ -143,8 +143,6 @@ export const journey = {
       converge: {
         label: "Both lanes converge",
         title: "The National Youth Conclave",
-        body:
-          "10,000 students at SIECC Convention Centre, Sarsana — same stage, one national narrative. Bharat Yuva Niti winners are announced, followed by the closing.",
       },
     },
   ] satisfies Day[],

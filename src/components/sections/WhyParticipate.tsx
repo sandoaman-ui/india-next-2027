@@ -44,7 +44,7 @@ export function WhyParticipate() {
   return (
     <section
       id={whyParticipate.id}
-      data-ground="ink"
+      data-ground="bone"
       className="section"
       aria-labelledby="why-title"
     >

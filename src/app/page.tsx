@@ -7,9 +7,6 @@ import { Conclave } from "@/components/sections/Conclave";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { Journey } from "@/components/sections/Journey";
-import { Pillars } from "@/components/sections/Pillars";
-import { Tracks } from "@/components/sections/Tracks";
-import { WhoApplies } from "@/components/sections/WhoApplies";
 import { WhyParticipate } from "@/components/sections/WhyParticipate";
 
 export default function Page() {
@@ -20,11 +17,8 @@ export default function Page() {
       <main id="main">
         <Hero />
         <About />
-        <Tracks />
         <Journey />
         <Conclave />
-        <Pillars />
-        <WhoApplies />
         <WhyParticipate />
         <FinalCta />
       </main>

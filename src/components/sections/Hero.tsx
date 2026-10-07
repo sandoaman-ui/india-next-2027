@@ -38,7 +38,17 @@ export function Hero() {
                 className="flex flex-col gap-1.5 border-b border-[var(--line)] py-5 pr-4 md:border-b-0 md:py-7 [&:nth-child(odd)]:border-r [&:nth-child(odd)]:border-[var(--line)] [&:nth-child(odd)]:pr-4 md:[&:nth-child(odd)]:border-r-0 md:[&:not(:first-child)]:border-l md:[&:not(:first-child)]:border-[var(--line)] md:[&:not(:first-child)]:pl-6"
               >
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="figure text-[clamp(2.1rem,5.2vw,3.6rem)]">
+                <span
+                  aria-hidden="true"
+                  className="mb-3 block h-1 w-9"
+                  style={{
+                    backgroundColor: i % 2 ? "var(--azure)" : "var(--crimson)",
+                  }}
+                />
+                <dd
+                  className="figure text-[clamp(2.1rem,5.2vw,3.6rem)]"
+                  style={{ color: i % 2 ? "var(--azure)" : "var(--crimson)" }}
+                >
                   <CountUp
                     value={stat.value}
                     suffix={stat.suffix}
@@ -46,7 +56,7 @@ export function Hero() {
                     immediate
                   />
                 </dd>
-                <dd className="text-[0.8125rem] leading-snug text-[var(--muted)]">
+                <dd className="text-[0.8125rem] leading-snug text-[var(--fg)]">
                   {stat.label}
                 </dd>
               </div>
@@ -61,7 +71,7 @@ export function Hero() {
           {tracks.map((track) => (
             <Link
               key={track.id}
-              href="#tracks"
+              href={track.cta.href}
               data-track={track.id}
               className="group relative flex flex-col justify-between gap-7 bg-[var(--paper-0)] p-4 transition-colors duration-[var(--d-base)] hover:bg-[var(--paper-2)] sm:p-6 md:gap-10 md:p-9"
             >

@@ -8,7 +8,7 @@ export function Journey() {
   return (
     <section
       id={journey.id}
-      data-ground="ink"
+      data-ground="bone"
       className="section scroll-mt-16"
       aria-labelledby="journey-title"
     >
@@ -139,15 +139,7 @@ export function Journey() {
 }
 
 /** The moment the two lanes stop being two lanes. */
-function Converge({
-  label,
-  title,
-  body,
-}: {
-  label: string;
-  title: string;
-  body: string;
-}) {
+function Converge({ label, title }: { label: string; title: string }) {
   return (
     <div className="relative overflow-hidden border-t border-[var(--line)] bg-[var(--paper-2)] px-5 pb-8 pt-10 text-[var(--fg)] md:px-10 md:pb-12 md:pt-14">
       {/* Two lines leaning in until they meet. */}
@@ -180,9 +172,6 @@ function Converge({
         <h4 className="display mx-auto max-w-[16ch] text-[clamp(1.6rem,5vw,2.75rem)] leading-[0.95]">
           {title}
         </h4>
-        <p className="mx-auto max-w-[52ch] text-[0.875rem] leading-relaxed text-[var(--muted)]">
-          {body}
-        </p>
       </div>
     </div>
   );

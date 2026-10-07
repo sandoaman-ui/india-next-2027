@@ -20,10 +20,10 @@ export function HeroPlate() {
       style={reduced ? undefined : { y, scale }}
     >
       <Photo
-        name="heroAuditorium"
+        name="heroCohort"
         sizes="100vw"
         preload
-        className="object-cover object-[50%_35%]"
+        className="object-cover object-[50%_42%]"
       />
     </motion.div>
   );

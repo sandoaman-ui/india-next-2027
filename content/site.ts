@@ -24,7 +24,6 @@ export const site = {
 export const nav = {
   links: [
     { label: "About", href: "#about" },
-    { label: "The Two Tracks", href: "#tracks" },
     { label: "Journey", href: "#journey" },
     { label: "Conclave", href: "#conclave" },
     { label: "Apply", href: "#apply" },
@@ -97,13 +96,11 @@ export const about = {
   ],
   pull:
     "Not a one-day event. Not an audience: an active participant in the country's future.",
-  progression: ["Discover", "Compete", "Connect", "Build", "Impact"],
 } as const;
 
 /** The short walk-through that sits inside the About section. */
 export const walkthrough = {
   label: "Walk through",
-  lead: "Two days, two venues, one progression.",
   days: [
     {
       id: "day-1",
@@ -111,7 +108,6 @@ export const walkthrough = {
       venue: "University premises",
       body:
         "The event is held on a university campus, with students divided across classrooms while sessions for the Debate and the Innovators Challenge run simultaneously.",
-      tags: ["Classroom rounds", "Debate", "Innovators Challenge"],
     },
     {
       id: "day-2",
@@ -119,70 +115,13 @@ export const walkthrough = {
       venue: "SIECC Convention Centre, Sarsana",
       body:
         "Selection and final rounds for the students who qualified, followed by the National Conclave — where 10,000 students witness the Youth Conclave.",
-      tags: ["Selection", "Finals", "National Conclave"],
     },
   ],
-} as const;
-
-export const pillars = {
-  id: "ecosystem",
-  index: "06",
-  kicker: "From Dialogue to Action",
-  intro:
-    "Bharat Yuva Niti operates as an ecosystem, not as a conventional conference, startup contest or debate tournament.",
-  items: [
-    {
-      num: "01",
-      title: "Debate",
-      body: "Challenge ideas. Defend perspectives. Think critically.",
-    },
-    {
-      num: "02",
-      title: "Policy",
-      body:
-        "Bring young voices into India's policy and national-development conversation.",
-    },
-    {
-      num: "03",
-      title: "Innovation",
-      body:
-        "Transform real problems into solutions through creativity, technology and entrepreneurship.",
-    },
-    {
-      num: "04",
-      title: "Capital",
-      body:
-        "Connect promising young innovators with investors, mentors and industry.",
-    },
-    {
-      num: "05",
-      title: "Impact",
-      body:
-        "Move ideas from conversation to implementation, partnerships and measurable outcomes.",
-    },
-  ],
-  mission: {
-    label: "Mission",
-    body:
-      "To create India's largest youth-led platform for debate, dialogue and collaboration across public policy, entrepreneurship, industry and nation-building.",
-  },
-} as const;
-
-export const whoShouldApply = {
-  id: "who",
-  index: "07",
-  kicker: "Who Should Apply",
-  lead: "Two doors into the same platform. Pick the one that sounds like you.",
-  callout: {
-    highlight: "No startup required.",
-    body:
-      "Bharat Yuva Niti is about discovering potential, not only rewarding existing credentials.",
-  },
 } as const;
 
 export const whyParticipate = {
   id: "why",
-  index: "08",
+  index: "04",
   kicker: "Why Participate",
   lead: "What you actually walk away with.",
   items: [
@@ -222,7 +161,7 @@ export const whyParticipate = {
 
 export const finalCta = {
   id: "apply",
-  index: "09",
+  index: "05",
   headline: ["Think.", "Debate.", "Build.", "Connect."],
   subheadline: "Your Bharat Yuva Niti starts here.",
   // TODO: confirm — live registration / application URLs.
@@ -234,7 +173,7 @@ export const finalCta = {
       track: "founders" as const,
     },
   ],
-  secondary: { label: "Explore the Challenges", href: "#tracks" },
+  secondary: { label: "Explore the two days", href: "#journey" },
   tertiary: {
     label: "Partner with Bharat Yuva Niti",
     href: "#apply",
@@ -261,8 +200,8 @@ export const footer = {
       title: "The Summit",
       links: [
         { label: "What is Bharat Yuva Niti", href: "#about" },
-        { label: "The Debate", href: "#tracks" },
-        { label: "The Innovators Challenge", href: "#tracks" },
+        { label: "The Debate", href: "#apply" },
+        { label: "The Innovators Challenge", href: "#apply" },
         { label: "The Two-Day Journey", href: "#journey" },
         { label: "National Youth Conclave", href: "#conclave" },
       ],
@@ -272,7 +211,6 @@ export const footer = {
       links: [
         { label: "Apply to Debate", href: "#apply" },
         { label: "Apply to Innovators", href: "#apply" },
-        { label: "Who should apply", href: "#who" },
         { label: "Why participate", href: "#why" },
         { label: "Partner with Bharat Yuva Niti", href: "#apply" },
       ],
