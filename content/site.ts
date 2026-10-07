@@ -18,7 +18,7 @@ export const site = {
   description:
     "A National Youth Forum that gives the brightest young minds of India a platform to interact with industry professionals, mentors and national leaders, while actively shaping perspectives through innovation and discourse.",
   // TODO: confirm — final domain for canonical URLs and OG tags.
-  url: "https://india-next-2027.vercel.app",
+  url: "https://bharat-yuva-niti-2027.vercel.app",
 } as const;
 
 export const nav = {
